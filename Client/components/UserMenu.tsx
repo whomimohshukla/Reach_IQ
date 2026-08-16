@@ -10,6 +10,7 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
+  DropdownMenuGroup,
 } from '@/components/ui/dropdown-menu';
 import { 
   User, 
@@ -78,67 +79,69 @@ export function UserMenu({ user, organization }: UserMenuProps) {
         align="end" 
         className="w-64 bg-white dark:bg-[#192118] border-[#E2E8DF] dark:border-[#2C3828]"
       >
-        <DropdownMenuLabel className="font-normal">
-          <div className="flex flex-col space-y-1">
-            <p className="text-sm font-semibold text-[#172014] dark:text-white">
-              {user.name}
-            </p>
-            <p className="text-xs text-[#64705F] dark:text-[#AAB5A5]">
-              {user.email}
-            </p>
-            {organization && (
-              <div className="flex items-center gap-2 mt-2 pt-2 border-t border-[#E2E8DF] dark:border-[#2C3828]">
-                <Building2 className="h-3.5 w-3.5 text-[#467235]" />
-                <span className="text-xs font-medium text-[#172014] dark:text-white">
-                  {organization.name}
-                </span>
-              </div>
-            )}
-          </div>
-        </DropdownMenuLabel>
-        
-        <DropdownMenuSeparator className="bg-[#E2E8DF] dark:bg-[#2C3828]" />
-        
-        <DropdownMenuItem asChild>
-          <Link 
-            href="/settings" 
-            className="flex items-center gap-3 cursor-pointer text-[#172014] dark:text-white hover:bg-[#F8FAF7] dark:hover:bg-[#202A1E]"
+        <DropdownMenuGroup>
+          <DropdownMenuLabel className="font-normal">
+            <div className="flex flex-col space-y-1">
+              <p className="text-sm font-semibold text-[#172014] dark:text-white">
+                {user.name}
+              </p>
+              <p className="text-xs text-[#64705F] dark:text-[#AAB5A5]">
+                {user.email}
+              </p>
+              {organization && (
+                <div className="flex items-center gap-2 mt-2 pt-2 border-t border-[#E2E8DF] dark:border-[#2C3828]">
+                  <Building2 className="h-3.5 w-3.5 text-[#467235]" />
+                  <span className="text-xs font-medium text-[#172014] dark:text-white">
+                    {organization.name}
+                  </span>
+                </div>
+              )}
+            </div>
+          </DropdownMenuLabel>
+          
+          <DropdownMenuSeparator className="bg-[#E2E8DF] dark:bg-[#2C3828]" />
+          
+          <DropdownMenuItem asChild>
+            <Link 
+              href="/settings" 
+              className="flex items-center gap-3 cursor-pointer text-[#172014] dark:text-white hover:bg-[#F8FAF7] dark:hover:bg-[#202A1E]"
+            >
+              <User className="h-4 w-4 text-[#64705F] dark:text-[#AAB5A5]" />
+              <span>My Profile</span>
+            </Link>
+          </DropdownMenuItem>
+          
+          <DropdownMenuItem asChild>
+            <Link 
+              href="/settings" 
+              className="flex items-center gap-3 cursor-pointer text-[#172014] dark:text-white hover:bg-[#F8FAF7] dark:hover:bg-[#202A1E]"
+            >
+              <Settings className="h-4 w-4 text-[#64705F] dark:text-[#AAB5A5]" />
+              <span>Settings</span>
+            </Link>
+          </DropdownMenuItem>
+          
+          <DropdownMenuItem asChild>
+            <Link 
+              href="/help" 
+              className="flex items-center gap-3 cursor-pointer text-[#172014] dark:text-white hover:bg-[#F8FAF7] dark:hover:bg-[#202A1E]"
+            >
+              <HelpCircle className="h-4 w-4 text-[#64705F] dark:text-[#AAB5A5]" />
+              <span>Help & Support</span>
+            </Link>
+          </DropdownMenuItem>
+          
+          <DropdownMenuSeparator className="bg-[#E2E8DF] dark:bg-[#2C3828]" />
+          
+          <DropdownMenuItem
+            onClick={handleLogout}
+            disabled={isLoading}
+            className="flex items-center gap-3 cursor-pointer text-[#C62828] hover:bg-[#C62828]/10 dark:hover:bg-[#C62828]/20 focus:text-[#C62828]"
           >
-            <User className="h-4 w-4 text-[#64705F] dark:text-[#AAB5A5]" />
-            <span>My Profile</span>
-          </Link>
-        </DropdownMenuItem>
-        
-        <DropdownMenuItem asChild>
-          <Link 
-            href="/settings" 
-            className="flex items-center gap-3 cursor-pointer text-[#172014] dark:text-white hover:bg-[#F8FAF7] dark:hover:bg-[#202A1E]"
-          >
-            <Settings className="h-4 w-4 text-[#64705F] dark:text-[#AAB5A5]" />
-            <span>Settings</span>
-          </Link>
-        </DropdownMenuItem>
-        
-        <DropdownMenuItem asChild>
-          <Link 
-            href="/help" 
-            className="flex items-center gap-3 cursor-pointer text-[#172014] dark:text-white hover:bg-[#F8FAF7] dark:hover:bg-[#202A1E]"
-          >
-            <HelpCircle className="h-4 w-4 text-[#64705F] dark:text-[#AAB5A5]" />
-            <span>Help & Support</span>
-          </Link>
-        </DropdownMenuItem>
-        
-        <DropdownMenuSeparator className="bg-[#E2E8DF] dark:bg-[#2C3828]" />
-        
-        <DropdownMenuItem
-          onClick={handleLogout}
-          disabled={isLoading}
-          className="flex items-center gap-3 cursor-pointer text-[#C62828] hover:bg-[#C62828]/10 dark:hover:bg-[#C62828]/20 focus:text-[#C62828]"
-        >
-          <LogOut className="h-4 w-4" />
-          <span>{isLoading ? 'Logging out...' : 'Log out'}</span>
-        </DropdownMenuItem>
+            <LogOut className="h-4 w-4" />
+            <span>{isLoading ? 'Logging out...' : 'Log out'}</span>
+          </DropdownMenuItem>
+        </DropdownMenuGroup>
       </DropdownMenuContent>
     </DropdownMenu>
   );
