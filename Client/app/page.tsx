@@ -35,7 +35,7 @@ export default function HomePage() {
                 whileTap={{ scale: 0.95 }}
                 className="relative"
               >
-                <div className="w-11 h-11 rounded-xl bg-[#44A194] flex items-center justify-center shadow-lg shadow-[#44A194]/25 group-hover:shadow-[#44A194]/40 transition-all">
+                <div className="w-11 h-11 rounded-xl bg-[#467235] flex items-center justify-center shadow-lg shadow-[#467235]/25 group-hover:shadow-[#467235]/40 transition-all">
                   <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6 text-white">
                     <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="currentColor" fillOpacity="0.8"/>
                     <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -45,7 +45,7 @@ export default function HomePage() {
               </motion.div>
               <div className="flex flex-col">
                 <span className="text-2xl font-bold text-gray-900 tracking-tight leading-none">
-                  ReachIQ
+                  LeadFlow
                 </span>
                 <span className="text-[10px] text-gray-500 font-medium tracking-wider uppercase">
                   Smart Lead Recovery
@@ -63,7 +63,7 @@ export default function HomePage() {
                 <motion.div key={item.name} initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 * i }}>
                   <Link 
                     href={item.href} 
-                    className="flex items-center gap-2 px-4 py-2 text-sm font-semibold text-gray-600 hover:text-[#44A194] hover:bg-gray-50 rounded-lg transition-all group"
+                    className="flex items-center gap-2 px-4 py-2 text-sm font-semibold text-gray-600 hover:text-[#467235] hover:bg-gray-50 rounded-lg transition-all group"
                   >
                     <item.icon className="w-4 h-4 group-hover:scale-110 transition-transform" />
                     <span>{item.name}</span>
@@ -80,12 +80,12 @@ export default function HomePage() {
               transition={{ delay: 0.3 }}
             >
               <Link href="/login">
-                <Button variant="ghost" className="text-gray-700 hover:text-[#44A194] hover:bg-gray-50 font-semibold">
+                <Button variant="ghost" className="text-gray-700 hover:text-[#467235] hover:bg-gray-50 font-semibold">
                   Sign in
                 </Button>
               </Link>
               <Link href="/signup">
-                <Button className="bg-[#44A194] hover:bg-[#3a8c81] text-white font-semibold shadow-lg shadow-[#44A194]/25 hover:shadow-xl hover:shadow-[#44A194]/30 transition-all px-6">
+                <Button className="bg-[#467235] hover:bg-[#365A29] text-white font-semibold shadow-lg shadow-[#467235]/25 hover:shadow-xl hover:shadow-[#467235]/30 transition-all px-6">
                   Get Started
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
@@ -99,8 +99,8 @@ export default function HomePage() {
       <section className="relative pt-32 pb-24 px-6 lg:px-8 overflow-hidden bg-white">
         {/* Subtle Background Pattern */}
         <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-[#44A194] rounded-full blur-3xl" />
-          <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#44A194] rounded-full blur-3xl" />
+          <div className="absolute top-20 left-10 w-72 h-72 bg-[#467235] rounded-full blur-3xl" />
+          <div className="absolute bottom-20 right-10 w-96 h-96 bg-[#467235] rounded-full blur-3xl" />
         </div>
         
         <div className="relative max-w-7xl mx-auto">
@@ -110,11 +110,11 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#44A194]/10 mb-8"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#467235]/10 mb-8"
               style={{ border: '1px solid rgba(68, 161, 148, 0.2)' }}
             >
-              <Sparkles className="w-4 h-4 text-[#44A194]" />
-              <span className="text-sm font-semibold text-[#44A194]">
+              <Sparkles className="w-4 h-4 text-[#467235]" />
+              <span className="text-sm font-semibold text-[#467235]">
                 Intelligent WhatsApp Lead Management
               </span>
             </motion.div>
@@ -127,7 +127,7 @@ export default function HomePage() {
               className="text-6xl sm:text-7xl lg:text-8xl font-extrabold text-gray-900 mb-8 leading-[1.1] tracking-tight"
             >
               Turn WhatsApp Chats Into{" "}
-              <span className="text-[#44A194]">
+              <span className="text-[#467235]">
                 <TypeAnimation
                   sequence={[
                     'Revenue',
@@ -164,7 +164,7 @@ export default function HomePage() {
               <Link href="/signup">
                 <Button 
                   size="lg" 
-                  className="bg-[#44A194] hover:bg-[#3a8c81] text-white text-lg h-16 px-10 rounded-xl font-semibold shadow-2xl shadow-[#44A194]/25 hover:shadow-[#44A194]/40 hover:scale-105 transition-all"
+                  className="bg-[#467235] hover:bg-[#365A29] text-white text-lg h-16 px-10 rounded-xl font-semibold shadow-2xl shadow-[#467235]/25 hover:shadow-[#467235]/40 hover:scale-105 transition-all"
                 >
                   Start Free - No Credit Card
                   <ArrowRight className="ml-2 h-5 w-5" />
@@ -196,7 +196,7 @@ export default function HomePage() {
                 { icon: Users, text: "Trusted by 100+ businesses" },
               ].map((item, i) => (
                 <div key={i} className="flex items-center gap-2">
-                  <item.icon className="w-5 h-5 text-[#44A194]" />
+                  <item.icon className="w-5 h-5 text-[#467235]" />
                   <span className="font-medium">{item.text}</span>
                 </div>
               ))}
@@ -212,7 +212,7 @@ export default function HomePage() {
           >
             <div className="relative">
               {/* Subtle glow effect */}
-              <div className="absolute -inset-6 bg-[#44A194]/10 blur-3xl rounded-3xl opacity-50" />
+              <div className="absolute -inset-6 bg-[#467235]/10 blur-3xl rounded-3xl opacity-50" />
               
               {/* Preview Card */}
               <div className="relative bg-white rounded-3xl shadow-2xl overflow-hidden" style={{ border: '1px solid rgb(229 231 235)' }}>
@@ -238,7 +238,7 @@ export default function HomePage() {
                       { icon: Users, value: "127", label: "Total Leads", color: "bg-blue-500", bgColor: "bg-blue-50" },
                       { icon: Target, value: "18", label: "Hot Leads", color: "bg-red-500", bgColor: "bg-red-50" },
                       { icon: Clock, value: "24", label: "Follow-ups", color: "bg-orange-500", bgColor: "bg-orange-50" },
-                      { icon: IndianRupee, value: "₹1.8L", label: "Revenue", color: "bg-[#44A194]", bgColor: "bg-[#44A194]/10" },
+                      { icon: IndianRupee, value: "₹1.8L", label: "Revenue", color: "bg-[#467235]", bgColor: "bg-[#467235]/10" },
                     ].map((stat, i) => (
                       <motion.div
                         key={i}
@@ -271,7 +271,7 @@ export default function HomePage() {
                   >
                     <div className="flex items-center justify-between mb-6">
                       <h3 className="text-lg font-bold text-gray-900">Revenue Growth</h3>
-                      <div className="flex items-center gap-2 text-sm text-[#44A194] font-semibold px-4 py-2 bg-[#44A194]/10 rounded-lg">
+                      <div className="flex items-center gap-2 text-sm text-[#467235] font-semibold px-4 py-2 bg-[#467235]/10 rounded-lg">
                         <TrendingUp className="w-4 h-4" />
                         <span>+34% this month</span>
                       </div>
@@ -283,7 +283,7 @@ export default function HomePage() {
                           initial={{ height: 0 }}
                           animate={{ height: `${height}%` }}
                           transition={{ delay: 1.5 + i * 0.08, type: "spring", stiffness: 80 }}
-                          className="flex-1 bg-[#44A194] rounded-t-xl min-w-[20px] hover:bg-[#3a8c81] transition-all cursor-pointer"
+                          className="flex-1 bg-[#467235] rounded-t-xl min-w-[20px] hover:bg-[#365A29] transition-all cursor-pointer"
                         />
                       ))}
                     </div>
@@ -313,7 +313,7 @@ export default function HomePage() {
                 transition={{ delay: i * 0.1 }}
                 className="text-center group"
               >
-                <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-[#44A194]/10 text-[#44A194] mb-4 group-hover:bg-[#44A194] group-hover:text-white transition-all">
+                <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-[#467235]/10 text-[#467235] mb-4 group-hover:bg-[#467235] group-hover:text-white transition-all">
                   <stat.icon className="w-7 h-7" />
                 </div>
                 <div className="text-5xl font-bold text-gray-900 mb-2">
@@ -334,11 +334,11 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#44A194]/10 mb-6"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#467235]/10 mb-6"
               style={{ border: '1px solid rgba(68, 161, 148, 0.2)' }}
             >
-              <Shield className="w-4 h-4 text-[#44A194]" />
-              <span className="text-sm font-semibold text-[#44A194]">
+              <Shield className="w-4 h-4 text-[#467235]" />
+              <span className="text-sm font-semibold text-[#467235]">
                 Powerful Features
               </span>
             </motion.div>
@@ -389,7 +389,7 @@ export default function HomePage() {
                 className="group bg-white rounded-3xl p-10 hover:shadow-2xl transition-all"
                 style={{ border: '1px solid rgb(243 244 246)' }}
               >
-                <div className="w-16 h-16 rounded-2xl bg-[#44A194] flex items-center justify-center mb-8 group-hover:scale-110 transition-transform shadow-lg shadow-[#44A194]/25">
+                <div className="w-16 h-16 rounded-2xl bg-[#467235] flex items-center justify-center mb-8 group-hover:scale-110 transition-transform shadow-lg shadow-[#467235]/25">
                   <feature.icon className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
@@ -405,7 +405,7 @@ export default function HomePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative py-32 px-6 lg:px-8 overflow-hidden bg-[#44A194]">
+      <section className="relative py-32 px-6 lg:px-8 overflow-hidden bg-[#467235]">
         {/* Subtle Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl" />
@@ -437,7 +437,7 @@ export default function HomePage() {
               <Link href="/signup">
                 <Button 
                   size="lg" 
-                  className="bg-white text-[#44A194] hover:bg-gray-50 text-lg h-16 px-10 rounded-xl font-semibold shadow-2xl hover:scale-105 transition-all"
+                  className="bg-white text-[#467235] hover:bg-gray-50 text-lg h-16 px-10 rounded-xl font-semibold shadow-2xl hover:scale-105 transition-all"
                 >
                   Start Free - No Credit Card
                   <ArrowRight className="ml-2 h-5 w-5" />
@@ -479,7 +479,7 @@ export default function HomePage() {
             {/* Brand Column */}
             <div>
               <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-xl bg-[#44A194] flex items-center justify-center shadow-lg shadow-[#44A194]/25">
+                <div className="w-10 h-10 rounded-xl bg-[#467235] flex items-center justify-center shadow-lg shadow-[#467235]/25">
                   <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6 text-white">
                     <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="currentColor" fillOpacity="0.8"/>
                     <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -488,7 +488,7 @@ export default function HomePage() {
                 </div>
                 <div className="flex flex-col">
                   <span className="text-xl font-bold text-gray-900 leading-none">
-                    ReachIQ
+                    LeadFlow
                   </span>
                   <span className="text-[9px] text-gray-500 font-medium tracking-wider uppercase">
                     Smart Lead Recovery
@@ -503,7 +503,7 @@ export default function HomePage() {
                   <a
                     key={social}
                     href={`#${social}`}
-                    className="w-10 h-10 rounded-lg bg-gray-100 hover:bg-[#44A194]/10 flex items-center justify-center text-gray-600 hover:text-[#44A194] transition-all"
+                    className="w-10 h-10 rounded-lg bg-gray-100 hover:bg-[#467235]/10 flex items-center justify-center text-gray-600 hover:text-[#467235] transition-all"
                   >
                     <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                       <circle cx="12" cy="12" r="10" />
@@ -543,7 +543,7 @@ export default function HomePage() {
                     <li key={link.name}>
                       <Link 
                         href={link.href} 
-                        className="text-gray-600 hover:text-[#44A194] transition-colors inline-block"
+                        className="text-gray-600 hover:text-[#467235] transition-colors inline-block"
                       >
                         {link.name}
                       </Link>
@@ -557,16 +557,16 @@ export default function HomePage() {
           {/* Bottom Bar */}
           <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4" style={{ borderTop: '1px solid rgb(229 231 235)' }}>
             <p className="text-sm text-gray-500">
-              &copy; 2026 ReachIQ. All rights reserved. Made in India 🇮🇳
+              &copy; 2026 LeadFlow. All rights reserved. Made in India 🇮🇳
             </p>
             <div className="flex items-center gap-6 text-sm text-gray-500">
-              <Link href="#" className="hover:text-[#44A194] transition-colors">
+              <Link href="#" className="hover:text-[#467235] transition-colors">
                 Privacy
               </Link>
-              <Link href="#" className="hover:text-[#44A194] transition-colors">
+              <Link href="#" className="hover:text-[#467235] transition-colors">
                 Terms
               </Link>
-              <Link href="#" className="hover:text-[#44A194] transition-colors">
+              <Link href="#" className="hover:text-[#467235] transition-colors">
                 Security
               </Link>
             </div>

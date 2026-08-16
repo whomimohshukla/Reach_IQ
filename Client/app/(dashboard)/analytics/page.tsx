@@ -43,7 +43,7 @@ export default function AnalyticsPage() {
             <Calendar className="h-4 w-4 mr-2" />
             Last 30 Days
           </Button>
-          <Button className="bg-[#44A194] hover:bg-[#3a8c81] text-white h-12 px-6 shadow-lg shadow-[#44A194]/25 font-semibold">
+          <Button className="bg-[#467235] hover:bg-[#365A29] text-white h-12 px-6 shadow-lg shadow-[#467235]/25 font-semibold">
             Export Report
           </Button>
         </div>
@@ -57,8 +57,8 @@ export default function AnalyticsPage() {
             value: formatCurrency(stats.totalRevenue),
             change: stats.revenueGrowth,
             icon: IndianRupee,
-            color: 'bg-[#44A194]',
-            bgColor: 'bg-[#44A194]/10'
+            color: 'bg-[#467235]',
+            bgColor: 'bg-[#467235]/10'
           },
           {
             label: 'Total Leads',
@@ -120,15 +120,15 @@ export default function AnalyticsPage() {
               <h2 className="text-2xl font-bold text-gray-900">Revenue Trend</h2>
               <p className="text-gray-600 text-sm font-medium mt-1">Monthly revenue over time</p>
             </div>
-            <div className={`h-10 w-10 rounded-xl bg-[#44A194]/10 flex items-center justify-center`}>
-              <IndianRupee className="h-5 w-5 text-[#44A194]" />
+            <div className={`h-10 w-10 rounded-xl bg-[#467235]/10 flex items-center justify-center`}>
+              <IndianRupee className="h-5 w-5 text-[#467235]" />
             </div>
           </div>
           <div className="h-64 flex items-end justify-between gap-2">
             {[45, 52, 48, 65, 70, 68, 85, 92, 88, 95, 100, 98].map((height, i) => (
               <div key={i} className="flex-1 flex flex-col items-center">
                 <div 
-                  className="w-full bg-[#44A194] rounded-t-lg hover:bg-[#3a8c81] transition-all cursor-pointer"
+                  className="w-full bg-[#467235] rounded-t-lg hover:bg-[#365A29] transition-all cursor-pointer"
                   style={{ height: `${height}%` }}
                 />
                 <div className="text-xs text-gray-500 mt-2 font-medium">{['J', 'F', 'M', 'A', 'M', 'J', 'J', 'A', 'S', 'O', 'N', 'D'][i]}</div>
@@ -224,8 +224,8 @@ export default function AnalyticsPage() {
               <h2 className="text-xl font-bold text-gray-900">Top Services</h2>
               <p className="text-gray-600 text-xs font-medium mt-1">Most requested</p>
             </div>
-            <div className={`h-10 w-10 rounded-xl bg-[#44A194]/10 flex items-center justify-center`}>
-              <MessageSquare className="h-5 w-5 text-[#44A194]" />
+            <div className={`h-10 w-10 rounded-xl bg-[#467235]/10 flex items-center justify-center`}>
+              <MessageSquare className="h-5 w-5 text-[#467235]" />
             </div>
           </div>
           <div className="space-y-4">
@@ -238,7 +238,7 @@ export default function AnalyticsPage() {
               <div key={i} className="p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-all">
                 <div className="flex items-center justify-between mb-2">
                   <span className="font-bold text-gray-900 text-sm">{service.name}</span>
-                  <span className="text-xs font-bold text-[#44A194]">{service.count} leads</span>
+                  <span className="text-xs font-bold text-[#467235]">{service.count} leads</span>
                 </div>
                 <div className="text-lg font-bold text-gray-900">{formatCurrency(service.revenue)}</div>
               </div>

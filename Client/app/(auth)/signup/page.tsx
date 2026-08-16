@@ -35,7 +35,7 @@ export default function SignupPage() {
 
     if (strength <= 1) return { strength: 25, label: 'Weak', color: 'bg-red-500' };
     if (strength === 2) return { strength: 50, label: 'Fair', color: 'bg-orange-500' };
-    if (strength === 3) return { strength: 75, label: 'Good', color: 'bg-[#44A194]' };
+    if (strength === 3) return { strength: 75, label: 'Good', color: 'bg-[#467235]' };
     return { strength: 100, label: 'Strong', color: 'bg-green-500' };
   };
 
@@ -81,7 +81,7 @@ export default function SignupPage() {
 
     // Mock signup
     setTimeout(() => {
-      toast.success('Account created successfully! Welcome to ReachIQ');
+      toast.success('Account created successfully! Welcome to LeadFlow');
       router.push('/dashboard');
     }, 1500);
   };
@@ -108,10 +108,10 @@ export default function SignupPage() {
         {/* Logo */}
         <div className="text-center mb-8">
           <Link href="/" className="inline-flex items-center gap-3 mb-2 group">
-            <div className="h-12 w-12 rounded-2xl bg-[#44A194] flex items-center justify-center shadow-lg shadow-[#44A194]/30 group-hover:shadow-xl group-hover:shadow-[#44A194]/40 transition-all">
+            <div className="h-12 w-12 rounded-2xl bg-[#467235] flex items-center justify-center shadow-lg shadow-[#467235]/30 group-hover:shadow-xl group-hover:shadow-[#467235]/40 transition-all">
               <span className="text-white font-bold text-lg">RI</span>
             </div>
-            <span className="text-2xl font-bold text-gray-900">ReachIQ</span>
+            <span className="text-2xl font-bold text-gray-900">LeadFlow</span>
           </Link>
           <h1 className="text-3xl font-bold text-gray-900 mt-8">
             Create your account
@@ -240,7 +240,7 @@ export default function SignupPage() {
                     <span className={`text-xs font-bold ${
                       passwordStrength.label === 'Weak' ? 'text-red-600' :
                       passwordStrength.label === 'Fair' ? 'text-orange-600' :
-                      passwordStrength.label === 'Good' ? 'text-[#44A194]' :
+                      passwordStrength.label === 'Good' ? 'text-[#467235]' :
                       'text-green-600'
                     }`}>
                       {passwordStrength.label}
@@ -267,11 +267,11 @@ export default function SignupPage() {
                 />
                 <label htmlFor="terms" className="text-sm text-gray-700 leading-relaxed font-medium">
                   I agree to the{' '}
-                  <Link href="/terms" className="text-[#44A194] hover:text-[#3a8c81] font-bold">
+                  <Link href="/terms" className="text-[#467235] hover:text-[#365A29] font-bold">
                     Terms of Service
                   </Link>{' '}
                   and{' '}
-                  <Link href="/privacy" className="text-[#44A194] hover:text-[#3a8c81] font-bold">
+                  <Link href="/privacy" className="text-[#467235] hover:text-[#365A29] font-bold">
                     Privacy Policy
                   </Link>
                 </label>
@@ -286,7 +286,7 @@ export default function SignupPage() {
 
             <Button
               type="submit"
-              className="w-full h-12 bg-[#44A194] hover:bg-[#3a8c81] text-white font-bold rounded-xl shadow-lg shadow-[#44A194]/30 hover:shadow-xl hover:shadow-[#44A194]/40 transition-all"
+              className="w-full h-12 bg-[#467235] hover:bg-[#365A29] text-white font-bold rounded-xl shadow-lg shadow-[#467235]/30 hover:shadow-xl hover:shadow-[#467235]/40 transition-all"
               disabled={isLoading}
             >
               {isLoading ? (
@@ -304,7 +304,7 @@ export default function SignupPage() {
         {/* Login Link */}
         <p className="text-center text-base text-gray-600 mt-8">
           Already have an account?{' '}
-          <Link href="/login" className="text-[#44A194] hover:text-[#3a8c81] font-bold transition-colors">
+          <Link href="/login" className="text-[#467235] hover:text-[#365A29] font-bold transition-colors">
             Log in
           </Link>
         </p>

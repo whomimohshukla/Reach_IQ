@@ -74,7 +74,7 @@ export default function PricingPage() {
       <header className="bg-white/95 backdrop-blur-xl sticky top-0 z-50" style={{ borderBottom: '1px solid rgb(243 244 246)' }}>
         <div className="container flex h-20 items-center justify-between px-6">
           <Link href="/" className="flex items-center gap-3">
-            <div className="h-10 w-10 rounded-xl bg-[#44A194] flex items-center justify-center shadow-lg">
+            <div className="h-10 w-10 rounded-xl bg-[#467235] flex items-center justify-center shadow-lg">
               <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6 text-white">
                 <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="currentColor" fillOpacity="0.8"/>
                 <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -82,7 +82,7 @@ export default function PricingPage() {
               </svg>
             </div>
             <div className="flex flex-col">
-              <span className="text-xl font-bold text-gray-900 leading-none">ReachIQ</span>
+              <span className="text-xl font-bold text-gray-900 leading-none">LeadFlow</span>
               <span className="text-[9px] text-gray-500 font-medium tracking-wider uppercase">Smart Lead Recovery</span>
             </div>
           </Link>
@@ -91,7 +91,7 @@ export default function PricingPage() {
               <Button variant="ghost" size="sm" className="font-semibold">Log In</Button>
             </Link>
             <Link href="/signup">
-              <Button size="sm" className="bg-[#44A194] hover:bg-[#3a8c81] text-white font-semibold">Start Free</Button>
+              <Button size="sm" className="bg-[#467235] hover:bg-[#365A29] text-white font-semibold">Start Free</Button>
             </Link>
           </div>
         </div>
@@ -105,13 +105,13 @@ export default function PricingPage() {
             animate={{ opacity: 1, y: 0 }}
             className="text-center max-w-3xl mx-auto mb-16"
           >
-            <div className="inline-flex items-center rounded-full px-5 py-2 text-sm mb-6 bg-[#44A194]/10" style={{ border: '1px solid rgba(68, 161, 148, 0.2)' }}>
-              <Sparkles className="h-4 w-4 mr-2 text-[#44A194]" />
-              <span className="font-semibold text-[#44A194]">Simple, transparent pricing</span>
+            <div className="inline-flex items-center rounded-full px-5 py-2 text-sm mb-6 bg-[#467235]/10" style={{ border: '1px solid rgba(68, 161, 148, 0.2)' }}>
+              <Sparkles className="h-4 w-4 mr-2 text-[#467235]" />
+              <span className="font-semibold text-[#467235]">Simple, transparent pricing</span>
             </div>
             <h1 className="text-5xl md:text-6xl font-bold tracking-tight mb-6 text-gray-900">
               Choose the right plan for your{" "}
-              <span className="text-[#44A194]">business</span>
+              <span className="text-[#467235]">business</span>
             </h1>
             <p className="text-xl text-gray-600">
               Start with 14 days free. No credit card required. Cancel anytime.
@@ -123,7 +123,7 @@ export default function PricingPage() {
                 onClick={() => setBillingPeriod('monthly')}
                 className={`px-6 py-2 rounded-full text-sm font-semibold transition-all ${
                   billingPeriod === 'monthly'
-                    ? 'bg-[#44A194] text-white shadow-lg'
+                    ? 'bg-[#467235] text-white shadow-lg'
                     : 'text-gray-600 hover:text-gray-900'
                 }`}
               >
@@ -133,7 +133,7 @@ export default function PricingPage() {
                 onClick={() => setBillingPeriod('yearly')}
                 className={`px-6 py-2 rounded-full text-sm font-semibold transition-all relative ${
                   billingPeriod === 'yearly'
-                    ? 'bg-[#44A194] text-white shadow-lg'
+                    ? 'bg-[#467235] text-white shadow-lg'
                     : 'text-gray-600 hover:text-gray-900'
                 }`}
               >
@@ -157,12 +157,12 @@ export default function PricingPage() {
               >
                 <Card className={`p-8 h-full flex flex-col relative bg-white ${
                   plan.popular 
-                    ? 'shadow-2xl shadow-[#44A194]/20' 
+                    ? 'shadow-2xl shadow-[#467235]/20' 
                     : 'hover:shadow-xl'
-                }`} style={{ border: plan.popular ? '2px solid #44A194' : '1px solid rgb(243 244 246)' }}>
+                }`} style={{ border: plan.popular ? '2px solid #467235' : '1px solid rgb(243 244 246)' }}>
                   {plan.popular && (
                     <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                      <div className="bg-[#44A194] text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg">
+                      <div className="bg-[#467235] text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg">
                         Most Popular
                       </div>
                     </div>
@@ -199,7 +199,7 @@ export default function PricingPage() {
                           transition={{ delay: i * 0.1 + j * 0.05 }}
                           className="flex items-start gap-3"
                         >
-                          <Check className="h-5 w-5 text-[#44A194] flex-shrink-0 mt-0.5" />
+                          <Check className="h-5 w-5 text-[#467235] flex-shrink-0 mt-0.5" />
                           <span className="text-sm text-gray-700">{feature}</span>
                         </motion.li>
                       ))}
@@ -210,8 +210,8 @@ export default function PricingPage() {
                     <Button 
                       className={`w-full font-semibold ${
                         plan.popular 
-                          ? 'bg-[#44A194] hover:bg-[#3a8c81] text-white shadow-xl' 
-                          : 'hover:bg-[#44A194]/10 hover:text-[#44A194]'
+                          ? 'bg-[#467235] hover:bg-[#365A29] text-white shadow-xl' 
+                          : 'hover:bg-[#467235]/10 hover:text-[#467235]'
                       }`}
                       variant={plan.popular ? 'default' : 'outline'}
                       size="lg"
@@ -278,15 +278,15 @@ export default function PricingPage() {
             viewport={{ once: true }}
             className="mt-24 text-center"
           >
-            <Card className="p-12 bg-[#44A194]/5 hover:shadow-2xl transition-all" style={{ border: '2px solid rgba(68, 161, 148, 0.2)' }}>
+            <Card className="p-12 bg-[#467235]/5 hover:shadow-2xl transition-all" style={{ border: '2px solid rgba(68, 161, 148, 0.2)' }}>
               <h2 className="text-3xl font-bold mb-4 text-gray-900">
                 Still have questions?
               </h2>
               <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-                Our team is here to help you choose the right plan and get started with ReachIQ
+                Our team is here to help you choose the right plan and get started with LeadFlow
               </p>
               <Link href="/contact">
-                <Button size="lg" className="shadow-xl bg-[#44A194] hover:bg-[#3a8c81] text-white font-semibold">
+                <Button size="lg" className="shadow-xl bg-[#467235] hover:bg-[#365A29] text-white font-semibold">
                   Contact Sales
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
@@ -302,7 +302,7 @@ export default function PricingPage() {
           <div className="grid gap-8 md:grid-cols-4 mb-12">
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="h-10 w-10 rounded-xl bg-[#44A194] flex items-center justify-center shadow-lg">
+                <div className="h-10 w-10 rounded-xl bg-[#467235] flex items-center justify-center shadow-lg">
                   <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6 text-white">
                     <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="currentColor" fillOpacity="0.8"/>
                     <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -310,7 +310,7 @@ export default function PricingPage() {
                   </svg>
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-lg font-bold text-gray-900 leading-none">ReachIQ</span>
+                  <span className="text-lg font-bold text-gray-900 leading-none">LeadFlow</span>
                   <span className="text-[8px] text-gray-500 font-medium tracking-wider uppercase">Smart Lead Recovery</span>
                 </div>
               </div>
@@ -328,7 +328,7 @@ export default function PricingPage() {
                 <ul className="space-y-3">
                   {column.links.map((link) => (
                     <li key={link}>
-                      <Link href={`/${link.toLowerCase()}`} className="text-sm text-gray-600 hover:text-[#44A194] transition-colors">
+                      <Link href={`/${link.toLowerCase()}`} className="text-sm text-gray-600 hover:text-[#467235] transition-colors">
                         {link}
                       </Link>
                     </li>
@@ -338,7 +338,7 @@ export default function PricingPage() {
             ))}
           </div>
           <div className="pt-8 text-center text-sm text-gray-500" style={{ borderTop: '1px solid rgb(229 231 235)' }}>
-            <p>&copy; 2026 ReachIQ. All rights reserved. Made in India 🇮🇳</p>
+            <p>&copy; 2026 LeadFlow. All rights reserved. Made in India 🇮🇳</p>
           </div>
         </div>
       </footer>

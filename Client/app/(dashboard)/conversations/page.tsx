@@ -72,7 +72,7 @@ export default function ConversationsPage() {
               <p className="text-gray-600 mb-4">{(error as Error)?.message || 'Unable to load conversations'}</p>
               <Button 
                 onClick={() => window.location.reload()} 
-                className="bg-[#44A194] hover:bg-[#3a8c81] text-white font-semibold"
+                className="bg-[#467235] hover:bg-[#365A29] text-white font-semibold"
               >
                 <Loader2 className="mr-2 h-4 w-4" />
                 Retry
@@ -88,7 +88,7 @@ export default function ConversationsPage() {
                   style={{ borderTop: i > 0 ? '1px solid rgb(243 244 246)' : 'none' }}
                 >
                   {/* Avatar */}
-                  <div className="h-14 w-14 rounded-full bg-[#44A194]/10 flex items-center justify-center text-base font-bold text-[#44A194] flex-shrink-0" style={{ border: '2px solid rgba(68, 161, 148, 0.2)' }}>
+                  <div className="h-14 w-14 rounded-full bg-[#467235]/10 flex items-center justify-center text-base font-bold text-[#467235] flex-shrink-0" style={{ border: '2px solid rgba(68, 161, 148, 0.2)' }}>
                     {conversation.customer.name.split(' ').map(n => n[0]).join('')}
                   </div>
 
@@ -96,7 +96,7 @@ export default function ConversationsPage() {
                   <div className="flex-1 min-w-0">
                     <div className="flex items-start justify-between gap-2 mb-2">
                       <div className="flex items-center gap-2">
-                        <span className="font-bold text-gray-900 truncate group-hover:text-[#44A194] transition-colors">
+                        <span className="font-bold text-gray-900 truncate group-hover:text-[#467235] transition-colors">
                           {conversation.customer.name}
                         </span>
                         {conversation.aiIntent === 'HIGH' && (
@@ -139,7 +139,7 @@ export default function ConversationsPage() {
               </p>
               {!search && (
                 <Link href="/whatsapp">
-                  <Button className="bg-[#44A194] hover:bg-[#3a8c81] text-white font-semibold">
+                  <Button className="bg-[#467235] hover:bg-[#365A29] text-white font-semibold">
                     Connect WhatsApp
                   </Button>
                 </Link>

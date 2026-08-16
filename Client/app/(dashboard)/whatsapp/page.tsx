@@ -178,7 +178,7 @@ export default function WhatsAppPage() {
               </>
             ) : (
               <Button 
-                className="bg-[#44A194] hover:bg-[#3a8c81] text-white shadow-lg shadow-[#44A194]/25 font-semibold h-12 px-8"
+                className="bg-[#467235] hover:bg-[#365A29] text-white shadow-lg shadow-[#467235]/25 font-semibold h-12 px-8"
                 onClick={handleConnect}
                 disabled={isConnecting}
               >
@@ -241,7 +241,7 @@ export default function WhatsAppPage() {
       {/* Setup Instructions */}
       <Card className="p-10 bg-white" style={{ border: '1px solid rgb(243 244 246)' }}>
         <div className="flex items-start gap-5 mb-8">
-          <div className="h-12 w-12 rounded-2xl bg-[#44A194] flex items-center justify-center shadow-lg shadow-[#44A194]/30">
+          <div className="h-12 w-12 rounded-2xl bg-[#467235] flex items-center justify-center shadow-lg shadow-[#467235]/30">
             <Settings className="h-6 w-6 text-white" />
           </div>
           <div>
@@ -276,7 +276,7 @@ export default function WhatsAppPage() {
             },
           ].map((item) => (
             <div key={item.step} className="flex gap-5">
-              <div className="h-10 w-10 rounded-xl bg-[#44A194] flex items-center justify-center text-white font-bold flex-shrink-0 shadow-lg shadow-[#44A194]/25">
+              <div className="h-10 w-10 rounded-xl bg-[#467235] flex items-center justify-center text-white font-bold flex-shrink-0 shadow-lg shadow-[#467235]/25">
                 {item.step}
               </div>
               <div className="flex-1 pb-6" style={{ borderBottom: item.step < 4 ? '1px solid rgb(243 244 246)' : 'none' }}>
@@ -288,7 +288,7 @@ export default function WhatsAppPage() {
         </div>
 
         <div className="mt-8 pt-8" style={{ borderTop: '1px solid rgb(243 244 246)' }}>
-          <Button className="bg-[#44A194] hover:bg-[#3a8c81] text-white h-12 px-8 font-semibold shadow-lg shadow-[#44A194]/25">
+          <Button className="bg-[#467235] hover:bg-[#365A29] text-white h-12 px-8 font-semibold shadow-lg shadow-[#467235]/25">
             View Full Documentation
           </Button>
         </div>

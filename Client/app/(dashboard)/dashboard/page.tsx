@@ -39,7 +39,7 @@ export default function DashboardPage() {
             </p>
             <Button 
               onClick={() => window.location.reload()} 
-              className="bg-[#44A194] hover:bg-[#3a8c81] text-white font-semibold"
+              className="bg-[#467235] hover:bg-[#365A29] text-white font-semibold"
             >
               Reload Page
             </Button>
@@ -74,7 +74,7 @@ export default function DashboardPage() {
         transition={{ duration: 0.5 }}
       >
         <h1 className="text-4xl font-bold tracking-tight text-gray-900">
-          Good morning, <span className="text-[#44A194]">ABC Cooling Services</span>
+          Good morning, <span className="text-[#467235]">ABC Cooling Services</span>
         </h1>
         <p className="text-gray-600 mt-3 text-lg">
           Here's what needs your attention today
@@ -87,7 +87,7 @@ export default function DashboardPage() {
           { icon: Users, label: 'Total Leads', value: stats?.totalLeads || 0, change: '+12%', color: 'bg-blue-500', bgColor: 'bg-blue-50' },
           { icon: Flame, label: 'Hot Leads', value: stats?.hotLeads || 0, change: 'Urgent', color: 'bg-red-500', bgColor: 'bg-red-50' },
           { icon: Calendar, label: 'Follow-ups Needed', value: stats?.followUpsNeeded || 0, change: 'Pending', color: 'bg-orange-500', bgColor: 'bg-orange-50' },
-          { icon: IndianRupee, label: 'Revenue Recovered', value: formatCurrency(stats?.revenueRecovered || 0), change: '+₹42K', color: 'bg-[#44A194]', bgColor: 'bg-[#44A194]/10' },
+          { icon: IndianRupee, label: 'Revenue Recovered', value: formatCurrency(stats?.revenueRecovered || 0), change: '+₹42K', color: 'bg-[#467235]', bgColor: 'bg-[#467235]/10' },
         ].map((stat, i) => (
           <motion.div
             key={i}
@@ -127,24 +127,24 @@ export default function DashboardPage() {
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, delay: 0.4 }}
       >
-        <Card className="p-10 bg-[#44A194]/5 hover:shadow-2xl transition-all" style={{ border: '2px solid rgba(68, 161, 148, 0.2)' }}>
+        <Card className="p-10 bg-[#467235]/5 hover:shadow-2xl transition-all" style={{ border: '2px solid rgba(68, 161, 148, 0.2)' }}>
           <div className="flex items-start justify-between gap-8">
             <div className="flex items-start gap-6 flex-1">
               <motion.div
                 animate={{ rotate: [0, 360] }}
                 transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="h-16 w-16 rounded-2xl bg-[#44A194] flex items-center justify-center flex-shrink-0 shadow-xl shadow-[#44A194]/30"
+                className="h-16 w-16 rounded-2xl bg-[#467235] flex items-center justify-center flex-shrink-0 shadow-xl shadow-[#467235]/30"
               >
                 <Target className="h-8 w-8 text-white" />
               </motion.div>
               <div className="flex-1">
                 <div className="flex items-center gap-2 mb-3">
-                  <Sparkles className="h-5 w-5 text-[#44A194] animate-pulse" />
+                  <Sparkles className="h-5 w-5 text-[#467235] animate-pulse" />
                   <h3 className="text-2xl font-bold text-gray-900">AI Revenue Opportunity</h3>
                 </div>
                 <p className="text-gray-700 leading-relaxed text-base">
                   We found <span className="font-bold text-gray-900">43 inactive leads</span> worth approximately{' '}
-                  <span className="font-bold text-[#44A194]">₹2.84 lakh</span>. These leads showed high buying intent but haven't been contacted in over 24 hours.
+                  <span className="font-bold text-[#467235]">₹2.84 lakh</span>. These leads showed high buying intent but haven't been contacted in over 24 hours.
                 </p>
                 <div className="flex items-center gap-6 mt-5 text-sm text-gray-600">
                   <div className="flex items-center gap-2">
@@ -159,7 +159,7 @@ export default function DashboardPage() {
               </div>
             </div>
             <Link href="/ai">
-              <Button size="lg" className="bg-[#44A194] hover:bg-[#3a8c81] text-white shadow-xl shadow-[#44A194]/25 hover:shadow-2xl hover:shadow-[#44A194]/35 transition-all group px-8 py-6 text-base h-auto">
+              <Button size="lg" className="bg-[#467235] hover:bg-[#365A29] text-white shadow-xl shadow-[#467235]/25 hover:shadow-2xl hover:shadow-[#467235]/35 transition-all group px-8 py-6 text-base h-auto">
                 Review Leads
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </Button>
@@ -176,7 +176,7 @@ export default function DashboardPage() {
             <p className="text-gray-600 mt-2 text-base">High-value opportunities requiring follow-up</p>
           </div>
           <Link href="/leads?status=HOT">
-            <Button variant="outline" className="gap-2 h-12 px-6 font-semibold hover:bg-[#44A194]/10 hover:text-[#44A194] transition-all" style={{ border: '2px solid rgb(229 231 235)' }}>
+            <Button variant="outline" className="gap-2 h-12 px-6 font-semibold hover:bg-[#467235]/10 hover:text-[#467235] transition-all" style={{ border: '2px solid rgb(229 231 235)' }}>
               View All
               <ArrowRight className="h-4 w-4" />
             </Button>
@@ -217,7 +217,7 @@ export default function DashboardPage() {
                 >
                   <Link href={`/leads/${lead.id}`} className="flex items-center justify-between p-7 hover:bg-gray-50 transition-colors group">
                     <div className="flex items-center gap-6 flex-1">
-                      <div className="h-16 w-16 rounded-2xl bg-[#44A194]/10 flex items-center justify-center text-lg font-bold text-[#44A194]" style={{ border: '2px solid rgba(68, 161, 148, 0.2)' }}>
+                      <div className="h-16 w-16 rounded-2xl bg-[#467235]/10 flex items-center justify-center text-lg font-bold text-[#467235]" style={{ border: '2px solid rgba(68, 161, 148, 0.2)' }}>
                         {lead.customer.name.split(' ').map(n => n[0]).join('')}
                       </div>
                       <div className="flex-1 min-w-0">
@@ -246,7 +246,7 @@ export default function DashboardPage() {
                       </div>
                     </div>
                     <div className="text-right">
-                      <div className="text-sm font-bold text-[#44A194] mb-1 group-hover:text-[#3a8c81] transition-colors">
+                      <div className="text-sm font-bold text-[#467235] mb-1 group-hover:text-[#365A29] transition-colors">
                         Follow up today
                       </div>
                       {lead.lastContact && (
@@ -272,7 +272,7 @@ export default function DashboardPage() {
       <div className="grid gap-6 sm:grid-cols-3">
         {[
           { label: 'Conversion Rate', value: `${stats?.conversionRate || 0}%`, icon: TrendingUp, color: 'text-green-500', bgColor: 'bg-green-50' },
-          { label: 'Avg Lead Value', value: formatCurrency(stats?.avgLeadValue || 0), icon: IndianRupee, color: 'text-[#44A194]', bgColor: 'bg-[#44A194]/10' },
+          { label: 'Avg Lead Value', value: formatCurrency(stats?.avgLeadValue || 0), icon: IndianRupee, color: 'text-[#467235]', bgColor: 'bg-[#467235]/10' },
           { label: 'Avg Response Time', value: `${stats?.avgResponseTime || 0}m`, icon: Calendar, color: 'text-blue-500', bgColor: 'bg-blue-50' },
         ].map((stat, i) => (
           <motion.div

@@ -68,7 +68,7 @@ export default function LoginPage() {
         {/* Logo & Header */}
         <div className="text-center mb-8">
           <Link href="/" className="inline-flex items-center gap-3 mb-8 group">
-            <div className="h-12 w-12 rounded-xl bg-[#44A194] flex items-center justify-center shadow-lg shadow-[#44A194]/25 group-hover:shadow-[#44A194]/40 transition-all">
+            <div className="h-12 w-12 rounded-xl bg-[#467235] flex items-center justify-center shadow-lg shadow-[#467235]/25 group-hover:shadow-[#467235]/40 transition-all">
               <svg viewBox="0 0 24 24" fill="none" className="w-7 h-7 text-white">
                 <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="currentColor" fillOpacity="0.8"/>
                 <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -76,7 +76,7 @@ export default function LoginPage() {
               </svg>
             </div>
             <div className="flex flex-col text-left">
-              <span className="text-2xl font-bold text-gray-900 leading-none">ReachIQ</span>
+              <span className="text-2xl font-bold text-gray-900 leading-none">LeadFlow</span>
               <span className="text-[10px] text-gray-500 font-medium tracking-wider uppercase">Smart Lead Recovery</span>
             </div>
           </Link>
@@ -148,7 +148,7 @@ export default function LoginPage() {
                 <Label htmlFor="password" className="text-sm font-semibold text-gray-900">Password</Label>
                 <Link
                   href="/forgot-password"
-                  className="text-sm text-[#44A194] hover:text-[#3a8c81] font-semibold transition-colors"
+                  className="text-sm text-[#467235] hover:text-[#365A29] font-semibold transition-colors"
                 >
                   Forgot?
                 </Link>
@@ -187,7 +187,7 @@ export default function LoginPage() {
 
             <Button
               type="submit"
-              className="w-full h-12 bg-[#44A194] hover:bg-[#3a8c81] text-white font-semibold text-base shadow-lg shadow-[#44A194]/25 hover:shadow-xl hover:shadow-[#44A194]/35 transition-all rounded-xl"
+              className="w-full h-12 bg-[#467235] hover:bg-[#365A29] text-white font-semibold text-base shadow-lg shadow-[#467235]/25 hover:shadow-xl hover:shadow-[#467235]/35 transition-all rounded-xl"
               disabled={isLoading}
             >
               {isLoading ? (
@@ -202,7 +202,7 @@ export default function LoginPage() {
           </form>
 
           <div className="mt-6 text-center">
-            <Link href="/verify-phone" className="text-sm text-[#44A194] hover:text-[#3a8c81] font-semibold transition-colors">
+            <Link href="/verify-phone" className="text-sm text-[#467235] hover:text-[#365A29] font-semibold transition-colors">
               Login with phone number →
             </Link>
           </div>
@@ -211,18 +211,18 @@ export default function LoginPage() {
         {/* Sign Up Link */}
         <p className="text-center text-gray-600 mt-8">
           Don't have an account?{' '}
-          <Link href="/signup" className="text-[#44A194] hover:text-[#3a8c81] font-bold transition-colors">
+          <Link href="/signup" className="text-[#467235] hover:text-[#365A29] font-bold transition-colors">
             Sign up for free
           </Link>
         </p>
 
         {/* Footer */}
         <div className="text-center mt-8 text-sm text-gray-500">
-          <Link href="/privacy" className="hover:text-[#44A194] transition-colors">Privacy</Link>
+          <Link href="/privacy" className="hover:text-[#467235] transition-colors">Privacy</Link>
           {' · '}
-          <Link href="/terms" className="hover:text-[#44A194] transition-colors">Terms</Link>
+          <Link href="/terms" className="hover:text-[#467235] transition-colors">Terms</Link>
           {' · '}
-          <Link href="/help" className="hover:text-[#44A194] transition-colors">Help</Link>
+          <Link href="/help" className="hover:text-[#467235] transition-colors">Help</Link>
         </div>
       </div>
     </div>

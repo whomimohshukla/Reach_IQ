@@ -68,7 +68,7 @@ export default function FollowUpsPage() {
             Manage scheduled follow-up messages and reminders
           </p>
         </div>
-        <Button className="bg-[#44A194] hover:bg-[#3a8c81] text-white h-12 px-6 shadow-lg shadow-[#44A194]/25 hover:shadow-xl hover:shadow-[#44A194]/30 transition-all font-semibold">
+        <Button className="bg-[#467235] hover:bg-[#365A29] text-white h-12 px-6 shadow-lg shadow-[#467235]/25 hover:shadow-xl hover:shadow-[#467235]/30 transition-all font-semibold">
           <MessageSquare className="h-4 w-4 mr-2" />
           Schedule Follow-up
         </Button>
@@ -133,7 +133,7 @@ export default function FollowUpsPage() {
               style={{ border: '1px solid rgb(229 231 235)' }}
             />
           </div>
-          <Button variant="outline" className="gap-2 h-12 px-6 font-semibold hover:bg-[#44A194]/10 hover:text-[#44A194] transition-all" style={{ border: '2px solid rgb(229 231 235)' }}>
+          <Button variant="outline" className="gap-2 h-12 px-6 font-semibold hover:bg-[#467235]/10 hover:text-[#467235] transition-all" style={{ border: '2px solid rgb(229 231 235)' }}>
             <Filter className="h-4 w-4" />
             Filters
           </Button>
@@ -148,7 +148,7 @@ export default function FollowUpsPage() {
             onClick={() => setStatusFilter(tab.value)}
             className={`px-6 py-3 rounded-xl text-sm font-bold whitespace-nowrap transition-all ${
               statusFilter === tab.value
-                ? 'bg-[#44A194] text-white shadow-lg shadow-[#44A194]/25'
+                ? 'bg-[#467235] text-white shadow-lg shadow-[#467235]/25'
                 : 'bg-white text-gray-600 hover:bg-gray-50'
             }`}
             style={{ border: statusFilter === tab.value ? 'none' : '1px solid rgb(243 244 246)' }}
@@ -170,13 +170,13 @@ export default function FollowUpsPage() {
               <div className="flex items-start justify-between gap-6">
                 {/* Left: Customer Info */}
                 <div className="flex items-start gap-5 flex-1">
-                  <div className="h-16 w-16 rounded-2xl bg-[#44A194]/10 flex items-center justify-center text-base font-bold text-[#44A194]" style={{ border: '2px solid rgba(68, 161, 148, 0.2)' }}>
+                  <div className="h-16 w-16 rounded-2xl bg-[#467235]/10 flex items-center justify-center text-base font-bold text-[#467235]" style={{ border: '2px solid rgba(68, 161, 148, 0.2)' }}>
                     {followup.customer.name.split(' ').map(n => n[0]).join('')}
                   </div>
                   <div className="flex-1">
                     <div className="flex items-center gap-3 mb-3">
                       <Link href={`/leads/${followup.leadId}`}>
-                        <h3 className="font-bold text-gray-900 text-xl hover:text-[#44A194] transition-colors">
+                        <h3 className="font-bold text-gray-900 text-xl hover:text-[#467235] transition-colors">
                           {followup.customer.name}
                         </h3>
                       </Link>
@@ -237,7 +237,7 @@ export default function FollowUpsPage() {
                       <div className="flex items-center gap-4 text-sm font-medium">
                         <div className="text-gray-600">{followup.lead.service}</div>
                         <div className="text-gray-400">•</div>
-                        <div className="font-bold text-[#44A194]">{formatCurrency(followup.lead.potentialValue)}</div>
+                        <div className="font-bold text-[#467235]">{formatCurrency(followup.lead.potentialValue)}</div>
                         <div className="text-gray-400">•</div>
                         <div className="text-gray-600">Score: {followup.lead.score}</div>
                       </div>
@@ -249,7 +249,7 @@ export default function FollowUpsPage() {
                 <div className="flex flex-col gap-3">
                   {followup.status === 'SCHEDULED' && (
                     <>
-                      <Button className="bg-[#44A194] hover:bg-[#3a8c81] text-white font-semibold h-11 px-6">
+                      <Button className="bg-[#467235] hover:bg-[#365A29] text-white font-semibold h-11 px-6">
                         <Send className="h-4 w-4 mr-2" />
                         Send Now
                       </Button>
@@ -268,7 +268,7 @@ export default function FollowUpsPage() {
                     </div>
                   )}
                   {followup.status === 'FAILED' && (
-                    <Button className="bg-[#44A194] hover:bg-[#3a8c81] text-white font-semibold h-11 px-6">
+                    <Button className="bg-[#467235] hover:bg-[#365A29] text-white font-semibold h-11 px-6">
                       <Send className="h-4 w-4 mr-2" />
                       Retry
                     </Button>
@@ -293,7 +293,7 @@ export default function FollowUpsPage() {
                 : 'Schedule your first follow-up to stay connected with leads'}
             </p>
             {!search && (
-              <Button className="bg-[#44A194] hover:bg-[#3a8c81] text-white h-12 px-8 shadow-lg shadow-[#44A194]/25 font-semibold">
+              <Button className="bg-[#467235] hover:bg-[#365A29] text-white h-12 px-8 shadow-lg shadow-[#467235]/25 font-semibold">
                 <MessageSquare className="h-4 w-4 mr-2" />
                 Schedule Follow-up
               </Button>

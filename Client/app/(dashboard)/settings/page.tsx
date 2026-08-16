@@ -91,7 +91,7 @@ export default function SettingsPage() {
                 onClick={() => setActiveTab(tab.id)}
                 className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-left transition-all font-semibold ${
                   activeTab === tab.id
-                    ? 'bg-[#44A194] text-white shadow-lg shadow-[#44A194]/25'
+                    ? 'bg-[#467235] text-white shadow-lg shadow-[#467235]/25'
                     : 'text-gray-600 hover:bg-gray-50'
                 }`}
               >
@@ -108,7 +108,7 @@ export default function SettingsPage() {
           {activeTab === 'profile' && (
             <Card className="p-8 bg-white" style={{ border: '1px solid rgb(243 244 246)' }}>
               <div className="flex items-center gap-4 mb-8">
-                <div className="h-14 w-14 rounded-2xl bg-[#44A194] flex items-center justify-center shadow-lg shadow-[#44A194]/30">
+                <div className="h-14 w-14 rounded-2xl bg-[#467235] flex items-center justify-center shadow-lg shadow-[#467235]/30">
                   <User className="h-7 w-7 text-white" />
                 </div>
                 <div>
@@ -170,7 +170,7 @@ export default function SettingsPage() {
                   <Button 
                     onClick={handleSave}
                     disabled={isSaving}
-                    className="bg-[#44A194] hover:bg-[#3a8c81] text-white h-12 px-8 font-semibold shadow-lg shadow-[#44A194]/25"
+                    className="bg-[#467235] hover:bg-[#365A29] text-white h-12 px-8 font-semibold shadow-lg shadow-[#467235]/25"
                   >
                     {isSaving ? (
                       <>
@@ -263,7 +263,7 @@ export default function SettingsPage() {
                   <Button 
                     onClick={handleSave}
                     disabled={isSaving}
-                    className="bg-[#44A194] hover:bg-[#3a8c81] text-white h-12 px-8 font-semibold shadow-lg shadow-[#44A194]/25"
+                    className="bg-[#467235] hover:bg-[#365A29] text-white h-12 px-8 font-semibold shadow-lg shadow-[#467235]/25"
                   >
                     {isSaving ? (
                       <>
@@ -346,7 +346,7 @@ export default function SettingsPage() {
                   <Button 
                     onClick={handleSave}
                     disabled={isSaving}
-                    className="bg-[#44A194] hover:bg-[#3a8c81] text-white h-12 px-8 font-semibold shadow-lg shadow-[#44A194]/25"
+                    className="bg-[#467235] hover:bg-[#365A29] text-white h-12 px-8 font-semibold shadow-lg shadow-[#467235]/25"
                   >
                     {isSaving ? (
                       <>
@@ -377,7 +377,7 @@ export default function SettingsPage() {
               <p className="text-gray-600 text-base mb-8">
                 This section is coming soon. Configure advanced settings here.
               </p>
-              <Button className="bg-[#44A194] hover:bg-[#3a8c81] text-white h-12 px-8 font-semibold shadow-lg shadow-[#44A194]/25">
+              <Button className="bg-[#467235] hover:bg-[#365A29] text-white h-12 px-8 font-semibold shadow-lg shadow-[#467235]/25">
                 Contact Support
               </Button>
             </Card>

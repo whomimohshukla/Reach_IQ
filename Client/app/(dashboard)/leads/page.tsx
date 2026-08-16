@@ -47,7 +47,7 @@ export default function LeadsPage() {
             Manage and track all your customer leads
           </p>
         </div>
-        <Button className="bg-[#44A194] hover:bg-[#3a8c81] text-white h-12 px-6 shadow-lg shadow-[#44A194]/25 hover:shadow-xl hover:shadow-[#44A194]/30 transition-all font-semibold">
+        <Button className="bg-[#467235] hover:bg-[#365A29] text-white h-12 px-6 shadow-lg shadow-[#467235]/25 hover:shadow-xl hover:shadow-[#467235]/30 transition-all font-semibold">
           <Plus className="h-4 w-4 mr-2" />
           Add Lead
         </Button>
@@ -65,7 +65,7 @@ export default function LeadsPage() {
               className="pl-12 h-12 bg-gray-50 rounded-xl font-medium" style={{ border: '1px solid rgb(229 231 235)' }}
             />
           </div>
-          <Button variant="outline" className="gap-2 h-12 px-6 font-semibold hover:bg-[#44A194]/10 hover:text-[#44A194] transition-all" style={{ border: '2px solid rgb(229 231 235)' }}>
+          <Button variant="outline" className="gap-2 h-12 px-6 font-semibold hover:bg-[#467235]/10 hover:text-[#467235] transition-all" style={{ border: '2px solid rgb(229 231 235)' }}>
             <Filter className="h-4 w-4" />
             Filters
           </Button>
@@ -80,7 +80,7 @@ export default function LeadsPage() {
             onClick={() => setStatusFilter(tab.value)}
             className={`px-6 py-3 rounded-xl text-sm font-bold whitespace-nowrap transition-all ${
               statusFilter === tab.value
-                ? 'bg-[#44A194] text-white shadow-lg shadow-[#44A194]/25'
+                ? 'bg-[#467235] text-white shadow-lg shadow-[#467235]/25'
                 : 'bg-white text-gray-600 hover:bg-gray-50'
             }`}
             style={{ border: statusFilter === tab.value ? 'none' : '1px solid rgb(243 244 246)' }}
@@ -120,12 +120,12 @@ export default function LeadsPage() {
                 <div className="flex items-start justify-between gap-6">
                   {/* Left: Customer Info */}
                   <div className="flex items-start gap-5 flex-1">
-                    <div className="h-16 w-16 rounded-2xl bg-[#44A194]/10 flex items-center justify-center text-base font-bold text-[#44A194] flex-shrink-0" style={{ border: '2px solid rgba(68, 161, 148, 0.2)' }}>
+                    <div className="h-16 w-16 rounded-2xl bg-[#467235]/10 flex items-center justify-center text-base font-bold text-[#467235] flex-shrink-0" style={{ border: '2px solid rgba(68, 161, 148, 0.2)' }}>
                       {lead.customer.name.split(' ').map(n => n[0]).join('')}
                     </div>
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-3 mb-2">
-                        <h3 className="font-bold text-gray-900 text-xl group-hover:text-[#44A194] transition-colors">
+                        <h3 className="font-bold text-gray-900 text-xl group-hover:text-[#467235] transition-colors">
                           {lead.customer.name}
                         </h3>
                         {lead.status === 'HOT' && (
@@ -169,10 +169,10 @@ export default function LeadsPage() {
                   {/* Right: Action */}
                   <div className="flex flex-col items-end gap-2 flex-shrink-0">
                     <div className="flex items-center gap-2">
-                      <span className="text-sm font-bold text-[#44A194] group-hover:text-[#3a8c81] transition-colors">
+                      <span className="text-sm font-bold text-[#467235] group-hover:text-[#365A29] transition-colors">
                         {lead.nextFollowUp ? 'Follow up scheduled' : 'Needs follow-up'}
                       </span>
-                      <ArrowRight className="h-4 w-4 text-[#44A194] group-hover:translate-x-1 transition-transform" />
+                      <ArrowRight className="h-4 w-4 text-[#467235] group-hover:translate-x-1 transition-transform" />
                     </div>
                     {lead.lastContact && (
                       <span className="text-xs text-gray-500 font-medium">
@@ -185,8 +185,8 @@ export default function LeadsPage() {
                 {/* AI Insight */}
                 {lead.intent === 'HIGH' && (
                   <div className="mt-5 pt-5" style={{ borderTop: '1px solid rgb(243 244 246)' }}>
-                    <div className="flex items-start gap-3 p-4 bg-[#44A194]/5 rounded-xl">
-                      <div className="h-6 w-6 rounded-lg bg-[#44A194] flex items-center justify-center flex-shrink-0 text-white text-xs font-bold shadow-lg shadow-[#44A194]/25">
+                    <div className="flex items-start gap-3 p-4 bg-[#467235]/5 rounded-xl">
+                      <div className="h-6 w-6 rounded-lg bg-[#467235] flex items-center justify-center flex-shrink-0 text-white text-xs font-bold shadow-lg shadow-[#467235]/25">
                         AI
                       </div>
                       <p className="text-sm text-gray-700">
@@ -216,7 +216,7 @@ export default function LeadsPage() {
             </p>
             {!search && (
               <Link href="/whatsapp">
-                <Button className="bg-[#44A194] hover:bg-[#3a8c81] text-white h-12 px-8 shadow-lg shadow-[#44A194]/25 font-semibold">
+                <Button className="bg-[#467235] hover:bg-[#365A29] text-white h-12 px-8 shadow-lg shadow-[#467235]/25 font-semibold">
                   Connect WhatsApp
                 </Button>
               </Link>

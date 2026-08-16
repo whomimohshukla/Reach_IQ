@@ -72,7 +72,7 @@ export default function BookingsPage() {
             Manage scheduled appointments and service bookings
           </p>
         </div>
-        <Button className="bg-[#44A194] hover:bg-[#3a8c81] text-white h-12 px-6 shadow-lg shadow-[#44A194]/25 hover:shadow-xl hover:shadow-[#44A194]/30 transition-all font-semibold">
+        <Button className="bg-[#467235] hover:bg-[#365A29] text-white h-12 px-6 shadow-lg shadow-[#467235]/25 hover:shadow-xl hover:shadow-[#467235]/30 transition-all font-semibold">
           <Calendar className="h-4 w-4 mr-2" />
           New Booking
         </Button>
@@ -106,8 +106,8 @@ export default function BookingsPage() {
             label: 'Revenue', 
             value: formatCurrency(mockBookings.reduce((sum, b) => sum + b.amount, 0)), 
             icon: IndianRupee, 
-            color: 'bg-[#44A194]',
-            bgColor: 'bg-[#44A194]/10'
+            color: 'bg-[#467235]',
+            bgColor: 'bg-[#467235]/10'
           },
         ].map((stat, i) => (
           <Card key={i} className="p-7 bg-white" style={{ border: '1px solid rgb(243 244 246)' }}>
@@ -137,7 +137,7 @@ export default function BookingsPage() {
               style={{ border: '1px solid rgb(229 231 235)' }}
             />
           </div>
-          <Button variant="outline" className="gap-2 h-12 px-6 font-semibold hover:bg-[#44A194]/10 hover:text-[#44A194] transition-all" style={{ border: '2px solid rgb(229 231 235)' }}>
+          <Button variant="outline" className="gap-2 h-12 px-6 font-semibold hover:bg-[#467235]/10 hover:text-[#467235] transition-all" style={{ border: '2px solid rgb(229 231 235)' }}>
             <Filter className="h-4 w-4" />
             Filters
           </Button>
@@ -152,7 +152,7 @@ export default function BookingsPage() {
             onClick={() => setStatusFilter(tab.value)}
             className={`px-6 py-3 rounded-xl text-sm font-bold whitespace-nowrap transition-all ${
               statusFilter === tab.value
-                ? 'bg-[#44A194] text-white shadow-lg shadow-[#44A194]/25'
+                ? 'bg-[#467235] text-white shadow-lg shadow-[#467235]/25'
                 : 'bg-white text-gray-600 hover:bg-gray-50'
             }`}
             style={{ border: statusFilter === tab.value ? 'none' : '1px solid rgb(243 244 246)' }}
@@ -188,7 +188,7 @@ export default function BookingsPage() {
               <div className="flex items-start justify-between gap-6">
                 {/* Left: Customer Info */}
                 <div className="flex items-start gap-5 flex-1">
-                  <div className="h-16 w-16 rounded-2xl bg-[#44A194]/10 flex items-center justify-center text-base font-bold text-[#44A194]" style={{ border: '2px solid rgba(68, 161, 148, 0.2)' }}>
+                  <div className="h-16 w-16 rounded-2xl bg-[#467235]/10 flex items-center justify-center text-base font-bold text-[#467235]" style={{ border: '2px solid rgba(68, 161, 148, 0.2)' }}>
                     {booking.customer.name.split(' ').map(n => n[0]).join('')}
                   </div>
                   <div className="flex-1">
@@ -201,7 +201,7 @@ export default function BookingsPage() {
                       </Badge>
                     </div>
                     <div className="space-y-2">
-                      <div className="text-lg font-bold text-[#44A194]">
+                      <div className="text-lg font-bold text-[#467235]">
                         {booking.service}
                       </div>
                       <div className="flex flex-wrap gap-x-5 gap-y-1 text-sm text-gray-600 font-medium">
@@ -283,7 +283,7 @@ export default function BookingsPage() {
                 : 'Create your first booking to get started'}
             </p>
             {!search && (
-              <Button className="bg-[#44A194] hover:bg-[#3a8c81] text-white h-12 px-8 shadow-lg shadow-[#44A194]/25 font-semibold">
+              <Button className="bg-[#467235] hover:bg-[#365A29] text-white h-12 px-8 shadow-lg shadow-[#467235]/25 font-semibold">
                 <Calendar className="h-4 w-4 mr-2" />
                 Create Booking
               </Button>

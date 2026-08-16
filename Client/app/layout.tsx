@@ -3,7 +3,7 @@ import "./globals.css";
 import { Providers } from "@/providers";
 
 export const metadata: Metadata = {
-  title: "ReachIQ — Smart WhatsApp Lead Recovery",
+  title: "LeadFlow — Smart WhatsApp Lead Recovery",
   description: "AI-powered lead management platform for service businesses. Analyze conversations, score leads automatically, and never miss a follow-up.",
 };
 

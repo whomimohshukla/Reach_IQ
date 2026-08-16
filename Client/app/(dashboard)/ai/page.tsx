@@ -32,7 +32,7 @@ export default function AIPage() {
       <div className="flex items-center justify-between">
         <div>
           <div className="flex items-center gap-3 mb-3">
-            <div className="h-12 w-12 rounded-2xl bg-[#44A194] flex items-center justify-center shadow-lg shadow-[#44A194]/30">
+            <div className="h-12 w-12 rounded-2xl bg-[#467235] flex items-center justify-center shadow-lg shadow-[#467235]/30">
               <Sparkles className="h-6 w-6 text-white" />
             </div>
             <h1 className="text-4xl font-bold text-gray-900">AI Insights</h1>
@@ -41,17 +41,17 @@ export default function AIPage() {
             Intelligent recommendations powered by machine learning
           </p>
         </div>
-        <Button className="bg-[#44A194] hover:bg-[#3a8c81] text-white h-12 px-6 shadow-lg shadow-[#44A194]/25 font-semibold">
+        <Button className="bg-[#467235] hover:bg-[#365A29] text-white h-12 px-6 shadow-lg shadow-[#467235]/25 font-semibold">
           <Zap className="h-4 w-4 mr-2" />
           Refresh Insights
         </Button>
       </div>
 
       {/* Main Revenue Opportunity Banner */}
-      <Card className="p-10 bg-gradient-to-br from-[#44A194]/10 via-[#44A194]/5 to-transparent" style={{ border: '2px solid rgba(68, 161, 148, 0.3)' }}>
+      <Card className="p-10 bg-gradient-to-br from-[#467235]/10 via-[#467235]/5 to-transparent" style={{ border: '2px solid rgba(68, 161, 148, 0.3)' }}>
         <div className="flex items-start justify-between gap-8">
           <div className="flex items-start gap-6 flex-1">
-            <div className="h-20 w-20 rounded-2xl bg-[#44A194] flex items-center justify-center shadow-xl shadow-[#44A194]/40">
+            <div className="h-20 w-20 rounded-2xl bg-[#467235] flex items-center justify-center shadow-xl shadow-[#467235]/40">
               <Target className="h-10 w-10 text-white" />
             </div>
             <div className="flex-1">
@@ -64,7 +64,7 @@ export default function AIPage() {
               </div>
               <p className="text-gray-700 text-lg leading-relaxed mb-4">
                 We identified <span className="font-bold text-gray-900">{highValueLeads.length} high-intent leads</span> worth{' '}
-                <span className="font-bold text-[#44A194]">{formatCurrency(totalPotentialRevenue)}</span> that require immediate attention.
+                <span className="font-bold text-[#467235]">{formatCurrency(totalPotentialRevenue)}</span> that require immediate attention.
                 These customers showed clear buying signals but haven't received follow-up in over 24 hours.
               </p>
               <div className="flex items-center gap-6 text-sm">
@@ -84,7 +84,7 @@ export default function AIPage() {
             </div>
           </div>
           <Link href="/leads?status=HOT">
-            <Button size="lg" className="bg-[#44A194] hover:bg-[#3a8c81] text-white shadow-xl shadow-[#44A194]/30 h-14 px-8 text-base font-bold">
+            <Button size="lg" className="bg-[#467235] hover:bg-[#365A29] text-white shadow-xl shadow-[#467235]/30 h-14 px-8 text-base font-bold">
               Review Leads
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
@@ -131,9 +131,9 @@ export default function AIPage() {
             </p>
 
             {insight.potentialValue && (
-              <div className="p-4 bg-[#44A194]/10 rounded-xl mb-5" style={{ border: '1px solid rgba(68, 161, 148, 0.2)' }}>
+              <div className="p-4 bg-[#467235]/10 rounded-xl mb-5" style={{ border: '1px solid rgba(68, 161, 148, 0.2)' }}>
                 <div className="text-sm text-gray-600 mb-1 font-semibold">Potential Revenue</div>
-                <div className="text-2xl font-bold text-[#44A194]">
+                <div className="text-2xl font-bold text-[#467235]">
                   {formatCurrency(insight.potentialValue)}
                 </div>
               </div>
@@ -144,7 +144,7 @@ export default function AIPage() {
                 <div className="h-2 w-2 rounded-full bg-green-500" />
                 <span className="font-bold text-gray-600">{insight.confidence}% confidence</span>
               </div>
-              <Button size="sm" className="bg-[#44A194] hover:bg-[#3a8c81] text-white font-semibold h-9 px-4">
+              <Button size="sm" className="bg-[#467235] hover:bg-[#365A29] text-white font-semibold h-9 px-4">
                 Take Action
               </Button>
             </div>
@@ -162,7 +162,7 @@ export default function AIPage() {
             </p>
           </div>
           <Link href="/leads?status=HOT">
-            <Button variant="outline" className="gap-2 h-11 px-6 font-semibold hover:bg-[#44A194]/10 hover:text-[#44A194]" style={{ border: '2px solid rgb(229 231 235)' }}>
+            <Button variant="outline" className="gap-2 h-11 px-6 font-semibold hover:bg-[#467235]/10 hover:text-[#467235]" style={{ border: '2px solid rgb(229 231 235)' }}>
               View All
               <ArrowRight className="h-4 w-4" />
             </Button>
@@ -175,12 +175,12 @@ export default function AIPage() {
               <div className="p-6 bg-gray-50 rounded-2xl hover:bg-gray-100 transition-all group">
                 <div className="flex items-start justify-between gap-6">
                   <div className="flex items-start gap-5 flex-1">
-                    <div className="h-16 w-16 rounded-2xl bg-[#44A194]/10 flex items-center justify-center text-base font-bold text-[#44A194]" style={{ border: '2px solid rgba(68, 161, 148, 0.2)' }}>
+                    <div className="h-16 w-16 rounded-2xl bg-[#467235]/10 flex items-center justify-center text-base font-bold text-[#467235]" style={{ border: '2px solid rgba(68, 161, 148, 0.2)' }}>
                       {lead.customer.name.split(' ').map(n => n[0]).join('')}
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-2">
-                        <h3 className="font-bold text-gray-900 text-lg group-hover:text-[#44A194] transition-colors">
+                        <h3 className="font-bold text-gray-900 text-lg group-hover:text-[#467235] transition-colors">
                           {lead.customer.name}
                         </h3>
                         <Badge className="bg-red-500 text-white font-semibold px-3 py-1">
@@ -195,7 +195,7 @@ export default function AIPage() {
                         <span>•</span>
                         <span>{lead.customer.location}</span>
                         <span>•</span>
-                        <span className="font-bold text-[#44A194]">{formatCurrency(lead.potentialValue)}</span>
+                        <span className="font-bold text-[#467235]">{formatCurrency(lead.potentialValue)}</span>
                       </div>
                     </div>
                   </div>
@@ -203,14 +203,14 @@ export default function AIPage() {
                   <div className="flex items-center gap-3">
                     <div className="text-right">
                       <div className="text-sm text-gray-500 mb-1 font-semibold">AI Recommendation</div>
-                      <div className="text-sm font-bold text-[#44A194]">Follow up within 2 hours</div>
+                      <div className="text-sm font-bold text-[#467235]">Follow up within 2 hours</div>
                     </div>
-                    <ArrowRight className="h-5 w-5 text-[#44A194] group-hover:translate-x-1 transition-transform" />
+                    <ArrowRight className="h-5 w-5 text-[#467235] group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
 
                 <div className="mt-4 pt-4 flex items-start gap-3" style={{ borderTop: '1px solid rgb(229 231 235)' }}>
-                  <div className="h-6 w-6 rounded-lg bg-[#44A194] flex items-center justify-center flex-shrink-0">
+                  <div className="h-6 w-6 rounded-lg bg-[#467235] flex items-center justify-center flex-shrink-0">
                     <Sparkles className="h-4 w-4 text-white" />
                   </div>
                   <p className="text-sm text-gray-700 font-medium">
@@ -231,8 +231,8 @@ export default function AIPage() {
             label: 'AI Predictions Made',
             value: '1,247',
             icon: Sparkles,
-            color: 'text-[#44A194]',
-            bgColor: 'bg-[#44A194]/10'
+            color: 'text-[#467235]',
+            bgColor: 'bg-[#467235]/10'
           },
           {
             label: 'Accuracy Rate',

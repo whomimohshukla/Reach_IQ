@@ -3,36 +3,72 @@
 @layer base {
   /* CSS Variables for Theme Colors */
   :root {
-    /* Primary Brand Color - Teal */
-    --color-primary: #44A194;
-    --color-primary-hover: #3a8c81;
-    --color-primary-light: #5cb3a6;
-    --color-primary-dark: #2d6e64;
+    /* LeadFlow Brand Colors */
+    --color-primary: #467235;
+    --color-primary-hover: #365A29;
+    --color-primary-light: #568B40;
+    --color-primary-dark: #29451F;
     
-    /* Dark mode colors */
-    --color-primary-dark-mode: #5cb3a6;
-    --color-primary-hover-dark: #6fc4b7;
+    /* Shadcn required variables */
+    --background: 0 0% 100%;
+    --foreground: 150 25% 9%;
     
-    /* Backgrounds */
-    --bg-primary: #ffffff;
-    --bg-secondary: #f9fafb;
-    --bg-accent: #f3f4f6;
+    --card: 0 0% 100%;
+    --card-foreground: 150 25% 9%;
     
-    /* Text */
-    --text-primary: #111827;
-    --text-secondary: #6b7280;
-    --text-muted: #9ca3af;
+    --popover: 0 0% 100%;
+    --popover-foreground: 150 25% 9%;
+    
+    --primary: 105 35% 33%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 105 15% 95%;
+    --secondary-foreground: 150 25% 9%;
+    
+    --muted: 105 10% 95%;
+    --muted-foreground: 105 5% 40%;
+    
+    --accent: 105 15% 94%;
+    --accent-foreground: 150 25% 9%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 105 20% 87%;
+    --input: 105 20% 80%;
+    --ring: 105 35% 33%;
     
     --radius: 0.75rem;
   }
 
   .dark {
-    --bg-primary: #111827;
-    --bg-secondary: #1f2937;
-    --bg-accent: #374151;
-    --text-primary: #f9fafb;
-    --text-secondary: #d1d5db;
-    --text-muted: #9ca3af;
+    --background: 150 30% 6%;
+    --foreground: 105 15% 95%;
+    
+    --card: 150 25% 8%;
+    --card-foreground: 105 15% 95%;
+    
+    --popover: 150 25% 8%;
+    --popover-foreground: 105 15% 95%;
+    
+    --primary: 105 35% 40%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 150 20% 12%;
+    --secondary-foreground: 105 15% 95%;
+    
+    --muted: 150 20% 12%;
+    --muted-foreground: 105 15% 65%;
+    
+    --accent: 150 20% 15%;
+    --accent-foreground: 105 15% 95%;
+    
+    --destructive: 0 62% 57%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 150 20% 22%;
+    --input: 150 20% 18%;
+    --ring: 105 35% 40%;
   }
 
   /* Global Reset */

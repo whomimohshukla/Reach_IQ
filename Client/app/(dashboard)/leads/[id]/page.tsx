@@ -77,7 +77,7 @@ export default function LeadDetailsPage() {
             </Link>
             <Button 
               onClick={() => window.location.reload()} 
-              className="bg-[#44A194] hover:bg-[#3a8c81] text-white font-semibold"
+              className="bg-[#467235] hover:bg-[#365A29] text-white font-semibold"
             >
               Try Again
             </Button>
@@ -102,7 +102,7 @@ export default function LeadDetailsPage() {
             This lead may have been deleted or doesn't exist
           </p>
           <Link href="/leads">
-            <Button className="bg-[#44A194] hover:bg-[#3a8c81] text-white font-semibold h-12 px-8">
+            <Button className="bg-[#467235] hover:bg-[#365A29] text-white font-semibold h-12 px-8">
               <ArrowLeft className="h-4 w-4 mr-2" />
               Back to Leads
             </Button>
@@ -132,7 +132,7 @@ export default function LeadDetailsPage() {
           <Card className="p-8 bg-white" style={{ border: '1px solid rgb(243 244 246)' }}>
             <div className="flex items-start justify-between mb-8">
               <div className="flex items-start gap-5">
-                <div className="h-20 w-20 rounded-2xl bg-[#44A194]/10 flex items-center justify-center text-2xl font-bold text-[#44A194]" style={{ border: '2px solid rgba(68, 161, 148, 0.2)' }}>
+                <div className="h-20 w-20 rounded-2xl bg-[#467235]/10 flex items-center justify-center text-2xl font-bold text-[#467235]" style={{ border: '2px solid rgba(68, 161, 148, 0.2)' }}>
                   {lead.customer.name.split(' ').map(n => n[0]).join('')}
                 </div>
                 <div>
@@ -191,7 +191,7 @@ export default function LeadDetailsPage() {
           {/* AI Analysis Card */}
           <Card className="p-8 bg-white" style={{ border: '1px solid rgb(243 244 246)' }}>
             <div className="flex items-center gap-3 mb-6">
-              <div className="h-10 w-10 rounded-2xl bg-[#44A194] flex items-center justify-center shadow-lg shadow-[#44A194]/30">
+              <div className="h-10 w-10 rounded-2xl bg-[#467235] flex items-center justify-center shadow-lg shadow-[#467235]/30">
                 <span className="text-base font-bold text-white">AI</span>
               </div>
               <h2 className="text-2xl font-bold text-gray-900">
@@ -232,9 +232,9 @@ export default function LeadDetailsPage() {
               </div>
             </div>
 
-            <div className="p-6 bg-[#44A194]/10 rounded-2xl" style={{ border: '2px solid rgba(68, 161, 148, 0.2)' }}>
+            <div className="p-6 bg-[#467235]/10 rounded-2xl" style={{ border: '2px solid rgba(68, 161, 148, 0.2)' }}>
               <h3 className="font-bold text-gray-900 mb-3 text-lg flex items-center gap-2">
-                <Target className="h-5 w-5 text-[#44A194]" />
+                <Target className="h-5 w-5 text-[#467235]" />
                 AI Recommendation
               </h3>
               <p className="text-base text-gray-700 leading-relaxed">
@@ -256,14 +256,14 @@ export default function LeadDetailsPage() {
               Conversation History
             </h2>
             <div className="text-center py-16">
-              <div className="h-20 w-20 rounded-2xl bg-[#44A194]/10 flex items-center justify-center mx-auto mb-5">
-                <MessageSquare className="h-10 w-10 text-[#44A194]" />
+              <div className="h-20 w-20 rounded-2xl bg-[#467235]/10 flex items-center justify-center mx-auto mb-5">
+                <MessageSquare className="h-10 w-10 text-[#467235]" />
               </div>
               <p className="text-gray-600 mb-6 text-base font-medium">
                 View complete WhatsApp conversation with this customer
               </p>
               <Link href={`/conversations/${lead.id}`}>
-                <Button className="bg-[#44A194] hover:bg-[#3a8c81] text-white h-12 px-8 font-semibold shadow-lg shadow-[#44A194]/25">
+                <Button className="bg-[#467235] hover:bg-[#365A29] text-white h-12 px-8 font-semibold shadow-lg shadow-[#467235]/25">
                   Open Conversation
                   <ArrowRight className="h-4 w-4 ml-2" />
                 </Button>
@@ -298,7 +298,7 @@ export default function LeadDetailsPage() {
           <Card className="p-8 bg-white" style={{ border: '1px solid rgb(243 244 246)' }}>
             <h3 className="font-bold text-gray-900 mb-6 text-xl">Quick Actions</h3>
             <div className="space-y-4">
-              <Button className="w-full h-12 bg-[#44A194] hover:bg-[#3a8c81] text-white font-semibold shadow-lg shadow-[#44A194]/25">
+              <Button className="w-full h-12 bg-[#467235] hover:bg-[#365A29] text-white font-semibold shadow-lg shadow-[#467235]/25">
                 <MessageSquare className="h-5 w-5 mr-2" />
                 Send Follow-up
               </Button>
@@ -326,9 +326,9 @@ export default function LeadDetailsPage() {
 
           {/* Next Follow-up Card */}
           {lead.nextFollowUp && (
-            <Card className="p-8 bg-[#44A194]/10" style={{ border: '2px solid rgba(68, 161, 148, 0.2)' }}>
+            <Card className="p-8 bg-[#467235]/10" style={{ border: '2px solid rgba(68, 161, 148, 0.2)' }}>
               <div className="flex items-center gap-3 mb-3">
-                <Calendar className="h-6 w-6 text-[#44A194]" />
+                <Calendar className="h-6 w-6 text-[#467235]" />
                 <h3 className="font-bold text-gray-900 text-lg">Next Follow-up</h3>
               </div>
               <div className="text-base text-gray-700 font-semibold">
