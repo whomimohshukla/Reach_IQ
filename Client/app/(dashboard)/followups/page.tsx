@@ -59,23 +59,23 @@ export default function FollowUpsPage() {
   });
 
   return (
-    <div className="p-8 space-y-8">
+    <div className="p-4 md:p-8 space-y-6 md:space-y-8">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-4xl font-bold text-gray-900">Follow-ups</h1>
-          <p className="text-gray-600 mt-2 text-base">
+          <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900">Follow-ups</h1>
+          <p className="text-gray-600 mt-2 text-sm md:text-base">
             Manage scheduled follow-up messages and reminders
           </p>
         </div>
-        <Button className="bg-[#467235] hover:bg-[#365A29] text-white h-12 px-6 shadow-lg shadow-[#467235]/25 hover:shadow-xl hover:shadow-[#467235]/30 transition-all font-semibold">
+        <Button className="w-full sm:w-auto bg-[#467235] hover:bg-[#365A29] text-white h-10 md:h-12 px-4 md:px-6 shadow-lg shadow-[#467235]/25 hover:shadow-xl hover:shadow-[#467235]/30 transition-all font-semibold">
           <MessageSquare className="h-4 w-4 mr-2" />
           Schedule Follow-up
         </Button>
       </div>
 
       {/* Stats Cards */}
-      <div className="grid gap-6 sm:grid-cols-4">
+      <div className="grid gap-4 md:gap-6 grid-cols-2 sm:grid-cols-4">
         {[
           { 
             label: 'Total Follow-ups', 
@@ -106,14 +106,14 @@ export default function FollowUpsPage() {
             bgColor: 'bg-red-50'
           },
         ].map((stat, i) => (
-          <Card key={i} className="p-7 bg-white" style={{ border: '1px solid rgb(243 244 246)' }}>
-            <div className="flex items-center justify-between">
-              <div>
-                <div className="text-sm text-gray-500 mb-2 font-semibold">{stat.label}</div>
-                <div className="text-3xl font-bold text-gray-900">{stat.value}</div>
+          <Card key={i} className="p-4 md:p-7 bg-white" style={{ border: '1px solid rgb(243 244 246)' }}>
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+              <div className="flex-1 min-w-0">
+                <div className="text-xs md:text-sm text-gray-500 mb-1 md:mb-2 font-semibold truncate">{stat.label}</div>
+                <div className="text-xl md:text-3xl font-bold text-gray-900">{stat.value}</div>
               </div>
-              <div className={`h-14 w-14 rounded-2xl ${stat.bgColor} flex items-center justify-center`}>
-                <stat.icon className={`h-7 w-7 ${stat.color.replace('bg-', 'text-')}`} />
+              <div className={`h-10 w-10 md:h-14 md:w-14 rounded-2xl ${stat.bgColor} flex items-center justify-center flex-shrink-0`}>
+                <stat.icon className={`h-5 w-5 md:h-7 md:w-7 ${stat.color.replace('bg-', 'text-')}`} />
               </div>
             </div>
           </Card>
@@ -121,19 +121,19 @@ export default function FollowUpsPage() {
       </div>
 
       {/* Search and Filters */}
-      <Card className="p-5 bg-white" style={{ border: '1px solid rgb(243 244 246)' }}>
-        <div className="flex flex-col sm:flex-row gap-4">
+      <Card className="p-4 md:p-5 bg-white" style={{ border: '1px solid rgb(243 244 246)' }}>
+        <div className="flex flex-col sm:flex-row gap-3 md:gap-4">
           <div className="flex-1 relative">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+            <Search className="absolute left-3 md:left-4 top-1/2 -translate-y-1/2 h-4 w-4 md:h-5 md:w-5 text-gray-400" />
             <Input
-              placeholder="Search follow-ups by customer name or message..."
+              placeholder="Search follow-ups..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="pl-12 h-12 bg-gray-50 rounded-xl font-medium" 
+              className="pl-10 md:pl-12 h-10 md:h-12 bg-gray-50 rounded-xl font-medium text-sm md:text-base" 
               style={{ border: '1px solid rgb(229 231 235)' }}
             />
           </div>
-          <Button variant="outline" className="gap-2 h-12 px-6 font-semibold hover:bg-[#467235]/10 hover:text-[#467235] transition-all" style={{ border: '2px solid rgb(229 231 235)' }}>
+          <Button variant="outline" className="gap-2 h-10 md:h-12 px-4 md:px-6 font-semibold hover:bg-[#467235]/10 hover:text-[#467235] transition-all text-sm md:text-base" style={{ border: '2px solid rgb(229 231 235)' }}>
             <Filter className="h-4 w-4" />
             Filters
           </Button>
@@ -141,12 +141,12 @@ export default function FollowUpsPage() {
       </Card>
 
       {/* Status Tabs */}
-      <div className="flex gap-3 overflow-x-auto pb-2">
+      <div className="flex gap-2 md:gap-3 overflow-x-auto pb-2 -mx-4 px-4 md:mx-0 md:px-0">
         {statusFilters.map((tab) => (
           <button
             key={tab.value}
             onClick={() => setStatusFilter(tab.value)}
-            className={`px-6 py-3 rounded-xl text-sm font-bold whitespace-nowrap transition-all ${
+            className={`px-4 md:px-6 py-2 md:py-3 rounded-xl text-xs md:text-sm font-bold whitespace-nowrap transition-all ${
               statusFilter === tab.value
                 ? 'bg-[#467235] text-white shadow-lg shadow-[#467235]/25'
                 : 'bg-white text-gray-600 hover:bg-gray-50'

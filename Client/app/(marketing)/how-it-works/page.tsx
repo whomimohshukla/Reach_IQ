@@ -52,14 +52,14 @@ const useCases = [
   {
     business: 'AC Service Business',
     scenario: 'Customer asks: "How much for AC repair?"',
-    problem: 'You reply with pricing. Customer says "I'll check and get back." Then: silence.',
+    problem: 'You reply with pricing. Customer says "I will check and get back." Then: silence.',
     solution: 'LeadFlow detects high buying intent, scores the lead 92/100, and reminds you to follow up the next day.',
     result: '₹2,500 service booking recovered'
   },
   {
     business: 'Plumbing Services',
     scenario: 'Customer: "Can someone come tomorrow for leak repair?"',
-    problem: 'You say "Yes, available tomorrow." Customer reads but doesn\'t confirm.',
+    problem: 'You say "Yes, available tomorrow." Customer reads but does not confirm.',
     solution: 'LeadFlow identifies urgency, marks as hot lead, suggests: "Shall I book you for 2 PM tomorrow?"',
     result: '₹1,800 emergency service converted'
   },

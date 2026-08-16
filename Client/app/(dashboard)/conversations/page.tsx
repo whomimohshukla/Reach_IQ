@@ -29,21 +29,21 @@ export default function ConversationsPage() {
   );
 
   return (
-    <div className="flex h-[calc(100vh-5rem)]">
+    <div className="flex h-[calc(100vh-5rem)] flex-col md:flex-row">
       {/* Conversations List */}
       <div className="w-full md:w-96 bg-white flex flex-col" style={{ borderRight: '1px solid rgb(243 244 246)' }}>
         {/* Header */}
-        <div className="p-6" style={{ borderBottom: '1px solid rgb(243 244 246)' }}>
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">
+        <div className="p-4 md:p-6" style={{ borderBottom: '1px solid rgb(243 244 246)' }}>
+          <h1 className="text-xl md:text-2xl font-bold text-gray-900 mb-3 md:mb-4">
             Conversations
           </h1>
           <div className="relative">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+            <Search className="absolute left-3 md:left-4 top-1/2 -translate-y-1/2 h-4 w-4 md:h-5 md:w-5 text-gray-400" />
             <Input
               placeholder="Search conversations..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="pl-12 h-12 bg-gray-50 rounded-xl font-medium"
+              className="pl-10 md:pl-12 h-10 md:h-12 bg-gray-50 rounded-xl font-medium text-sm md:text-base"
               style={{ border: '1px solid rgb(229 231 235)' }}
             />
           </div>
@@ -52,13 +52,13 @@ export default function ConversationsPage() {
         {/* Conversations List */}
         <div className="flex-1 overflow-y-auto">
           {isLoading ? (
-            <div className="p-6 space-y-4">
+            <div className="p-4 md:p-6 space-y-3 md:space-y-4">
               {[...Array(5)].map((_, i) => (
-                <div key={i} className="flex gap-4 animate-pulse">
-                  <div className="h-14 w-14 rounded-full bg-gray-200" />
-                  <div className="flex-1 space-y-3">
-                    <div className="h-4 w-3/4 bg-gray-200 rounded" />
-                    <div className="h-3 w-1/2 bg-gray-200 rounded" />
+                <div key={i} className="flex gap-3 md:gap-4 animate-pulse">
+                  <div className="h-12 w-12 md:h-14 md:w-14 rounded-full bg-gray-200" />
+                  <div className="flex-1 space-y-2 md:space-y-3">
+                    <div className="h-3 md:h-4 w-3/4 bg-gray-200 rounded" />
+                    <div className="h-2 md:h-3 w-1/2 bg-gray-200 rounded" />
                   </div>
                 </div>
               ))}
@@ -84,23 +84,23 @@ export default function ConversationsPage() {
                 <Link
                   key={conversation.id}
                   href={`/conversations/${conversation.id}`}
-                  className="flex gap-4 p-6 hover:bg-gray-50 transition-colors group"
+                  className="flex gap-3 md:gap-4 p-4 md:p-6 hover:bg-gray-50 transition-colors group"
                   style={{ borderTop: i > 0 ? '1px solid rgb(243 244 246)' : 'none' }}
                 >
                   {/* Avatar */}
-                  <div className="h-14 w-14 rounded-full bg-[#467235]/10 flex items-center justify-center text-base font-bold text-[#467235] flex-shrink-0" style={{ border: '2px solid rgba(68, 161, 148, 0.2)' }}>
+                  <div className="h-12 w-12 md:h-14 md:w-14 rounded-full bg-[#467235]/10 flex items-center justify-center text-sm md:text-base font-bold text-[#467235] flex-shrink-0" style={{ border: '2px solid rgba(68, 161, 148, 0.2)' }}>
                     {conversation.customer.name.split(' ').map(n => n[0]).join('')}
                   </div>
 
                   {/* Content */}
                   <div className="flex-1 min-w-0">
-                    <div className="flex items-start justify-between gap-2 mb-2">
-                      <div className="flex items-center gap-2">
-                        <span className="font-bold text-gray-900 truncate group-hover:text-[#467235] transition-colors">
+                    <div className="flex items-start justify-between gap-2 mb-1 md:mb-2">
+                      <div className="flex items-center gap-2 min-w-0">
+                        <span className="font-bold text-gray-900 truncate group-hover:text-[#467235] transition-colors text-sm md:text-base">
                           {conversation.customer.name}
                         </span>
                         {conversation.aiIntent === 'HIGH' && (
-                          <Sparkles className="h-4 w-4 text-orange-500 flex-shrink-0" />
+                          <Sparkles className="h-3 w-3 md:h-4 md:w-4 text-orange-500 flex-shrink-0" />
                         )}
                       </div>
                       <span className="text-xs text-gray-500 flex-shrink-0 font-medium">
@@ -108,7 +108,7 @@ export default function ConversationsPage() {
                       </span>
                     </div>
                     
-                    <p className="text-sm text-gray-600 truncate mb-2 font-medium">
+                    <p className="text-xs md:text-sm text-gray-600 truncate mb-1 md:mb-2 font-medium">
                       {conversation.messages[conversation.messages.length - 1]?.content}
                     </p>
 

@@ -1,69 +1,85 @@
 'use client';
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle, MessageSquare, Target, BarChart3, Zap, TrendingUp, Users, Clock, IndianRupee, Sparkles, Award, Shield, Bell, LayoutDashboard, ChevronRight } from "lucide-react";
+import { ArrowRight, CheckCircle, MessageSquare, Target, BarChart3, Zap, TrendingUp, Users, Clock, IndianRupee, Sparkles, Award, Shield, Bell, LayoutDashboard, ChevronRight, Menu, X, Mail, Phone, MapPin, Share2, Globe, Heart } from "lucide-react";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { TypeAnimation } from 'react-type-animation';
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Separator } from "@/components/ui/separator";
 
 export default function HomePage() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { scrollY } = useScroll();
-  const navbarBg = useTransform(scrollY, [0, 100], ["rgba(255, 255, 255, 0)", "rgba(255, 255, 255, 0.95)"]);
+  
+  useEffect(() => {
+    const unsubscribe = scrollY.on("change", (latest) => {
+      setIsScrolled(latest > 50);
+    });
+    return () => unsubscribe();
+  }, [scrollY]);
+
+  const navLinks = [
+    { name: "Features", href: "#features", icon: Sparkles },
+    { name: "How It Works", href: "#how-it-works", icon: LayoutDashboard },
+    { name: "Pricing", href: "/pricing", icon: Award },
+    { name: "Contact", href: "#contact", icon: Mail },
+  ];
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Enhanced Navbar */}
+      {/* Modern Sticky Navbar */}
       <motion.nav
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6 }}
-        className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl"
-        style={{ 
-          borderBottom: '1px solid rgba(229, 231, 235, 0.5)',
-          backgroundColor: navbarBg as any
-        }}
-        onViewportEnter={() => setIsScrolled(false)}
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.6, type: "spring" }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled 
+            ? 'bg-white/80 backdrop-blur-lg shadow-sm border-b border-gray-200' 
+            : 'bg-transparent'
+        }`}
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-3 group">
+            <Link href="/" className="flex items-center gap-2 md:gap-3 group z-50">
               <motion.div 
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.05, rotate: 5 }}
                 whileTap={{ scale: 0.95 }}
                 className="relative"
               >
-                <div className="w-11 h-11 rounded-xl bg-[#467235] flex items-center justify-center shadow-lg shadow-[#467235]/25 group-hover:shadow-[#467235]/40 transition-all">
-                  <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6 text-white">
-                    <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="currentColor" fillOpacity="0.8"/>
-                    <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <div className="w-9 h-9 md:w-11 md:h-11 rounded-xl bg-gradient-to-br from-[#467235] to-[#365A29] flex items-center justify-center shadow-lg shadow-[#467235]/30 group-hover:shadow-[#467235]/50 transition-all">
+                  <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5 md:w-6 md:h-6 text-white">
+                    <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="currentColor" fillOpacity="0.9"/>
+                    <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
               </motion.div>
               <div className="flex flex-col">
-                <span className="text-2xl font-bold text-gray-900 tracking-tight leading-none">
+                <span className="text-lg md:text-2xl font-bold text-gray-900 tracking-tight leading-none">
                   LeadFlow
                 </span>
-                <span className="text-[10px] text-gray-500 font-medium tracking-wider uppercase">
-                  Smart Lead Recovery
+                <span className="text-[8px] md:text-[10px] text-gray-500 font-semibold tracking-widest uppercase leading-none">
+                  AI Lead Recovery
                 </span>
               </div>
             </Link>
 
-            {/* Navigation Links */}
-            <div className="hidden md:flex items-center gap-1">
-              {[
-                { name: "Features", href: "#features", icon: Sparkles },
-                { name: "How It Works", href: "#how-it-works", icon: LayoutDashboard },
-                { name: "Pricing", href: "/pricing", icon: Award },
-              ].map((item, i) => (
-                <motion.div key={item.name} initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 * i }}>
+            {/* Desktop Navigation */}
+            <div className="hidden lg:flex items-center gap-1">
+              {navLinks.map((item, i) => (
+                <motion.div 
+                  key={item.name} 
+                  initial={{ opacity: 0, y: -10 }} 
+                  animate={{ opacity: 1, y: 0 }} 
+                  transition={{ delay: 0.1 * i }}
+                >
                   <Link 
                     href={item.href} 
-                    className="flex items-center gap-2 px-4 py-2 text-sm font-semibold text-gray-600 hover:text-[#467235] hover:bg-gray-50 rounded-lg transition-all group"
+                    className="flex items-center gap-2 px-4 py-2.5 text-sm font-semibold text-gray-700 hover:text-[#467235] hover:bg-[#467235]/5 rounded-xl transition-all group"
                   >
                     <item.icon className="w-4 h-4 group-hover:scale-110 transition-transform" />
                     <span>{item.name}</span>
@@ -72,25 +88,94 @@ export default function HomePage() {
               ))}
             </div>
 
-            {/* CTA Buttons */}
+            {/* Desktop CTA Buttons */}
             <motion.div 
-              className="flex items-center gap-3"
+              className="hidden md:flex items-center gap-3"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.3 }}
             >
               <Link href="/login">
-                <Button variant="ghost" className="text-gray-700 hover:text-[#467235] hover:bg-gray-50 font-semibold">
+                <Button variant="ghost" className="text-gray-700 hover:text-[#467235] hover:bg-[#467235]/5 font-semibold rounded-xl">
                   Sign in
                 </Button>
               </Link>
               <Link href="/signup">
-                <Button className="bg-[#467235] hover:bg-[#365A29] text-white font-semibold shadow-lg shadow-[#467235]/25 hover:shadow-xl hover:shadow-[#467235]/30 transition-all px-6">
+                <Button className="bg-gradient-to-r from-[#467235] to-[#365A29] hover:from-[#365A29] hover:to-[#2A4621] text-white font-semibold shadow-lg shadow-[#467235]/25 hover:shadow-xl hover:shadow-[#467235]/40 transition-all px-6 rounded-xl group">
                   Get Started
-                  <ArrowRight className="ml-2 h-4 w-4" />
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>
             </motion.div>
+
+            {/* Mobile Menu Button */}
+            <div className="flex md:hidden items-center gap-2">
+              <Link href="/signup" className="md:hidden">
+                <Button size="sm" className="bg-gradient-to-r from-[#467235] to-[#365A29] text-white font-semibold shadow-lg">
+                  Start Free
+                </Button>
+              </Link>
+              <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+                <SheetTrigger asChild>
+                  <Button variant="ghost" size="icon" className="lg:hidden">
+                    <Menu className="h-6 w-6 text-gray-700" />
+                  </Button>
+                </SheetTrigger>
+                <SheetContent side="right" className="w-full sm:w-80 p-0">
+                  <div className="flex flex-col h-full">
+                    {/* Mobile Menu Header */}
+                    <div className="p-6 border-b border-gray-200">
+                      <div className="flex items-center gap-3">
+                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#467235] to-[#365A29] flex items-center justify-center shadow-lg">
+                          <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6 text-white">
+                            <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="currentColor" fillOpacity="0.9"/>
+                            <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                            <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                        </div>
+                        <div>
+                          <div className="font-bold text-gray-900">LeadFlow</div>
+                          <div className="text-xs text-gray-500">AI Lead Recovery</div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Mobile Menu Links */}
+                    <nav className="flex-1 p-6 space-y-2 overflow-y-auto">
+                      {navLinks.map((item) => (
+                        <Link
+                          key={item.name}
+                          href={item.href}
+                          onClick={() => setMobileMenuOpen(false)}
+                          className="flex items-center gap-3 px-4 py-3 text-gray-700 hover:text-[#467235] hover:bg-[#467235]/5 rounded-xl transition-all group"
+                        >
+                          <item.icon className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                          <span className="font-semibold">{item.name}</span>
+                        </Link>
+                      ))}
+                      <Separator className="my-4" />
+                      <Link
+                        href="/login"
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="flex items-center gap-3 px-4 py-3 text-gray-700 hover:text-[#467235] hover:bg-[#467235]/5 rounded-xl transition-all"
+                      >
+                        <span className="font-semibold">Sign in</span>
+                      </Link>
+                    </nav>
+
+                    {/* Mobile Menu Footer */}
+                    <div className="p-6 border-t border-gray-200">
+                      <Link href="/signup" className="w-full" onClick={() => setMobileMenuOpen(false)}>
+                        <Button className="w-full bg-gradient-to-r from-[#467235] to-[#365A29] text-white font-semibold shadow-lg">
+                          Get Started Free
+                          <ArrowRight className="ml-2 h-4 w-4" />
+                        </Button>
+                      </Link>
+                    </div>
+                  </div>
+                </SheetContent>
+              </Sheet>
+            </div>
           </div>
         </div>
       </motion.nav>
@@ -472,103 +557,202 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-50 py-16 px-6 lg:px-8" style={{ borderTop: '1px solid rgb(229 231 235)' }}>
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-4 gap-12 mb-12">
-            {/* Brand Column */}
-            <div>
-              <div className="flex items-center gap-3 mb-6">
-                <div className="w-10 h-10 rounded-xl bg-[#467235] flex items-center justify-center shadow-lg shadow-[#467235]/25">
-                  <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6 text-white">
-                    <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="currentColor" fillOpacity="0.8"/>
-                    <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-xl font-bold text-gray-900 leading-none">
-                    LeadFlow
-                  </span>
-                  <span className="text-[9px] text-gray-500 font-medium tracking-wider uppercase">
-                    Smart Lead Recovery
-                  </span>
-                </div>
-              </div>
-              <p className="text-gray-600 leading-relaxed mb-6">
-                AI-powered WhatsApp lead management for Indian service businesses
-              </p>
-              <div className="flex items-center gap-3">
-                {['twitter', 'linkedin', 'instagram'].map((social) => (
-                  <a
-                    key={social}
-                    href={`#${social}`}
-                    className="w-10 h-10 rounded-lg bg-gray-100 hover:bg-[#467235]/10 flex items-center justify-center text-gray-600 hover:text-[#467235] transition-all"
+      {/* Modern Footer */}
+      <footer className="bg-gradient-to-b from-gray-50 to-white border-t border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Main Footer Content */}
+          <div className="py-12 md:py-16">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12">
+              {/* Brand Column - Takes more space */}
+              <div className="lg:col-span-4">
+                <Link href="/" className="flex items-center gap-3 mb-6 group w-fit">
+                  <motion.div 
+                    whileHover={{ scale: 1.05, rotate: 5 }}
+                    className="w-11 h-11 rounded-xl bg-gradient-to-br from-[#467235] to-[#365A29] flex items-center justify-center shadow-lg shadow-[#467235]/30 group-hover:shadow-[#467235]/50 transition-all"
                   >
-                    <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                      <circle cx="12" cy="12" r="10" />
+                    <svg viewBox="0 0 24 24" fill="none" className="w-6 h-6 text-white">
+                      <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="currentColor" fillOpacity="0.9"/>
+                      <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
-                  </a>
-                ))}
+                  </motion.div>
+                  <div className="flex flex-col">
+                    <span className="text-xl font-bold text-gray-900 leading-none">
+                      LeadFlow
+                    </span>
+                    <span className="text-[9px] text-gray-500 font-semibold tracking-widest uppercase">
+                      AI Lead Recovery
+                    </span>
+                  </div>
+                </Link>
+                <p className="text-gray-600 leading-relaxed mb-6 max-w-sm">
+                  AI-powered WhatsApp lead management platform designed specifically for Indian service businesses. Never lose a lead again.
+                </p>
+                
+                {/* Social Links */}
+                <div className="flex items-center gap-3">
+                  {[
+                    { icon: Share2, href: "https://twitter.com", label: "Twitter" },
+                    { icon: Globe, href: "https://linkedin.com", label: "LinkedIn" },
+                    { icon: Heart, href: "https://instagram.com", label: "Instagram" },
+                    { icon: MessageSquare, href: "https://github.com", label: "GitHub" },
+                  ].map((social) => (
+                    <motion.a
+                      key={social.label}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.1, y: -2 }}
+                      whileTap={{ scale: 0.95 }}
+                      className="w-10 h-10 rounded-lg bg-gray-100 hover:bg-[#467235] flex items-center justify-center text-gray-600 hover:text-white transition-all group"
+                      aria-label={social.label}
+                    >
+                      <social.icon className="w-4 h-4" />
+                    </motion.a>
+                  ))}
+                </div>
               </div>
-            </div>
 
-            {/* Links Columns */}
-            {[
-              { title: "Product", links: [
-                { name: "Features", href: "#features" },
-                { name: "Pricing", href: "/pricing" },
-                { name: "Demo", href: "/dashboard" },
-                { name: "Integrations", href: "#" }
-              ]},
-              { title: "Company", links: [
-                { name: "About", href: "#" },
-                { name: "Blog", href: "#" },
-                { name: "Careers", href: "#" },
-                { name: "Contact", href: "#" }
-              ]},
-              { title: "Resources", links: [
-                { name: "Documentation", href: "#" },
-                { name: "Help Center", href: "#" },
-                { name: "Privacy Policy", href: "#" },
-                { name: "Terms of Service", href: "#" }
-              ]},
-            ].map((column, i) => (
-              <div key={i}>
-                <h3 className="font-bold text-gray-900 mb-5 text-sm uppercase tracking-wider">
-                  {column.title}
+              {/* Links Columns */}
+              <div className="lg:col-span-2">
+                <h3 className="font-bold text-gray-900 mb-4 text-sm uppercase tracking-wider">
+                  Product
                 </h3>
                 <ul className="space-y-3">
-                  {column.links.map((link) => (
+                  {[
+                    { name: "Features", href: "#features" },
+                    { name: "Pricing", href: "/pricing" },
+                    { name: "Demo", href: "/dashboard" },
+                    { name: "Integrations", href: "#integrations" },
+                    { name: "API", href: "#api" },
+                  ].map((link) => (
                     <li key={link.name}>
                       <Link 
                         href={link.href} 
-                        className="text-gray-600 hover:text-[#467235] transition-colors inline-block"
+                        className="text-gray-600 hover:text-[#467235] transition-colors inline-flex items-center group"
                       >
-                        {link.name}
+                        <ChevronRight className="w-4 h-4 opacity-0 group-hover:opacity-100 -ml-4 group-hover:ml-0 transition-all" />
+                        <span>{link.name}</span>
                       </Link>
                     </li>
                   ))}
                 </ul>
               </div>
-            ))}
+
+              <div className="lg:col-span-2">
+                <h3 className="font-bold text-gray-900 mb-4 text-sm uppercase tracking-wider">
+                  Company
+                </h3>
+                <ul className="space-y-3">
+                  {[
+                    { name: "About Us", href: "#about" },
+                    { name: "Blog", href: "#blog" },
+                    { name: "Careers", href: "#careers" },
+                    { name: "Press Kit", href: "#press" },
+                    { name: "Partners", href: "#partners" },
+                  ].map((link) => (
+                    <li key={link.name}>
+                      <Link 
+                        href={link.href} 
+                        className="text-gray-600 hover:text-[#467235] transition-colors inline-flex items-center group"
+                      >
+                        <ChevronRight className="w-4 h-4 opacity-0 group-hover:opacity-100 -ml-4 group-hover:ml-0 transition-all" />
+                        <span>{link.name}</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="lg:col-span-2">
+                <h3 className="font-bold text-gray-900 mb-4 text-sm uppercase tracking-wider">
+                  Resources
+                </h3>
+                <ul className="space-y-3">
+                  {[
+                    { name: "Documentation", href: "#docs" },
+                    { name: "Help Center", href: "#help" },
+                    { name: "Community", href: "#community" },
+                    { name: "Tutorials", href: "#tutorials" },
+                    { name: "Status", href: "#status" },
+                  ].map((link) => (
+                    <li key={link.name}>
+                      <Link 
+                        href={link.href} 
+                        className="text-gray-600 hover:text-[#467235] transition-colors inline-flex items-center group"
+                      >
+                        <ChevronRight className="w-4 h-4 opacity-0 group-hover:opacity-100 -ml-4 group-hover:ml-0 transition-all" />
+                        <span>{link.name}</span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="lg:col-span-2">
+                <h3 className="font-bold text-gray-900 mb-4 text-sm uppercase tracking-wider">
+                  Contact
+                </h3>
+                <ul className="space-y-4">
+                  <li className="flex items-start gap-3 text-gray-600">
+                    <Mail className="w-5 h-5 text-[#467235] flex-shrink-0 mt-0.5" />
+                    <div>
+                      <div className="text-sm font-medium text-gray-900">Email</div>
+                      <a href="mailto:hello@leadflow.ai" className="text-sm hover:text-[#467235] transition-colors">
+                        hello@leadflow.ai
+                      </a>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3 text-gray-600">
+                    <Phone className="w-5 h-5 text-[#467235] flex-shrink-0 mt-0.5" />
+                    <div>
+                      <div className="text-sm font-medium text-gray-900">Phone</div>
+                      <a href="tel:+911234567890" className="text-sm hover:text-[#467235] transition-colors">
+                        +91 12345 67890
+                      </a>
+                    </div>
+                  </li>
+                  <li className="flex items-start gap-3 text-gray-600">
+                    <MapPin className="w-5 h-5 text-[#467235] flex-shrink-0 mt-0.5" />
+                    <div>
+                      <div className="text-sm font-medium text-gray-900">Location</div>
+                      <span className="text-sm">
+                        Mumbai, India
+                      </span>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
 
-          {/* Bottom Bar */}
-          <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4" style={{ borderTop: '1px solid rgb(229 231 235)' }}>
-            <p className="text-sm text-gray-500">
-              &copy; 2026 LeadFlow. All rights reserved. Made in India 🇮🇳
-            </p>
-            <div className="flex items-center gap-6 text-sm text-gray-500">
-              <Link href="#" className="hover:text-[#467235] transition-colors">
-                Privacy
-              </Link>
-              <Link href="#" className="hover:text-[#467235] transition-colors">
-                Terms
-              </Link>
-              <Link href="#" className="hover:text-[#467235] transition-colors">
-                Security
-              </Link>
+          <Separator />
+
+          {/* Footer Bottom */}
+          <div className="py-6 md:py-8">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+              <div className="flex flex-col md:flex-row items-center gap-2 md:gap-1 text-sm text-gray-600">
+                <span>&copy; 2026 LeadFlow. All rights reserved.</span>
+                <span className="hidden md:inline">•</span>
+                <span className="flex items-center gap-1">
+                  Made with <span className="text-red-500">❤️</span> in India 🇮🇳
+                </span>
+              </div>
+              <div className="flex items-center gap-6 text-sm">
+                {[
+                  { name: "Privacy Policy", href: "#privacy" },
+                  { name: "Terms of Service", href: "#terms" },
+                  { name: "Cookie Policy", href: "#cookies" },
+                ].map((link, i) => (
+                  <Link 
+                    key={link.name}
+                    href={link.href} 
+                    className="text-gray-600 hover:text-[#467235] transition-colors font-medium"
+                  >
+                    {link.name}
+                  </Link>
+                ))}
+              </div>
             </div>
           </div>
         </div>

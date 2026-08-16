@@ -24,8 +24,8 @@ import { mockBookings, mockCustomers, mockLeads } from '@/lib/mock/data';
 export default function BookingDetailsPage({ params }: { params: { id: string } }) {
   // Mock data - in real app, fetch based on params.id
   const booking = mockBookings[0];
-  const customer = mockCustomers.find(c => c.id === booking.customerId);
-  const lead = mockLeads.find(l => l.customerId === customer?.id);
+  const customer = booking.customer;
+  const lead = mockLeads.find(l => l.customer.id === customer?.id);
 
   const getStatusColor = (status: string) => {
     switch (status) {
@@ -134,7 +134,7 @@ export default function BookingDetailsPage({ params }: { params: { id: string } 
                   <div className="text-sm text-[#64705F] mb-1">Time Slot</div>
                   <div className="flex items-center gap-2 text-[#172014]">
                     <Clock className="h-4 w-4 text-[#467235]" />
-                    <span className="font-semibold">{booking.timeSlot}</span>
+                    <span className="font-semibold">{booking.scheduledTime}</span>
                   </div>
                 </div>
               </div>
@@ -143,15 +143,19 @@ export default function BookingDetailsPage({ params }: { params: { id: string } 
 
               <div>
                 <div className="text-sm text-[#64705F] mb-1">Assigned Technician</div>
-                <div className="flex items-center gap-3 mt-2">
-                  <div className="h-10 w-10 rounded-full bg-[#467235]/10 flex items-center justify-center text-[#467235] font-bold">
-                    {booking.technician.split(' ').map(n => n[0]).join('')}
+                {booking.technician ? (
+                  <div className="flex items-center gap-3 mt-2">
+                    <div className="h-10 w-10 rounded-full bg-[#467235]/10 flex items-center justify-center text-[#467235] font-bold">
+                      {booking.technician.name.split(' ').map(n => n[0]).join('')}
+                    </div>
+                    <div>
+                      <div className="font-semibold text-[#172014]">{booking.technician.name}</div>
+                      <div className="text-sm text-[#64705F]">Service Technician</div>
+                    </div>
                   </div>
-                  <div>
-                    <div className="font-semibold text-[#172014]">{booking.technician}</div>
-                    <div className="text-sm text-[#64705F]">Service Technician</div>
-                  </div>
-                </div>
+                ) : (
+                  <div className="text-sm text-[#64705F] italic">Not assigned yet</div>
+                )}
               </div>
 
               <Separator className="bg-[#E2E8DF]" />
@@ -286,12 +290,14 @@ export default function BookingDetailsPage({ params }: { params: { id: string } 
 
             <Separator className="bg-[#E2E8DF] my-4" />
 
-            <Link href={`/conversations/${booking.conversationId}`}>
-              <Button variant="outline" className="w-full border-[#CBD5C5]">
-                <MessageSquare className="h-4 w-4 mr-2" />
-                View Conversation
-              </Button>
-            </Link>
+            {lead && (
+              <Link href={`/leads/${lead.id}`}>
+                <Button variant="outline" className="w-full border-[#CBD5C5]">
+                  <MessageSquare className="h-4 w-4 mr-2" />
+                  View Lead Details
+                </Button>
+              </Link>
+            )}
           </Card>
 
           {/* Lead Source */}

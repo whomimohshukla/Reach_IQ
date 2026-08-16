@@ -113,7 +113,7 @@ export async function getAISuggestions(params: {
         confidence: 88,
       },
       {
-        message: 'We have availability tomorrow. I'll send you the service details and pricing. When would be a good time?',
+        message: 'We have availability tomorrow. I will send you the service details and pricing. When would be a good time?',
         tone: 'Friendly',
         confidence: 85,
       },
