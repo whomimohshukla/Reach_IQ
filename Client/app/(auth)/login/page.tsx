@@ -63,23 +63,11 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4 py-12">
+    <div className="workspace-grid min-h-screen flex items-center justify-center px-4 py-12">
       <div className="w-full max-w-md">
         {/* Logo & Header */}
         <div className="text-center mb-8">
-          <Link href="/" className="inline-flex items-center gap-3 mb-8 group">
-            <div className="h-12 w-12 rounded-xl bg-[#467235] flex items-center justify-center shadow-lg shadow-[#467235]/25 group-hover:shadow-[#467235]/40 transition-all">
-              <svg viewBox="0 0 24 24" fill="none" className="w-7 h-7 text-white">
-                <path d="M12 2L2 7L12 12L22 7L12 2Z" fill="currentColor" fillOpacity="0.8"/>
-                <path d="M2 17L12 22L22 17" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M2 12L12 17L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
-            </div>
-            <div className="flex flex-col text-left">
-              <span className="text-2xl font-bold text-gray-900 leading-none">LeadFlow</span>
-              <span className="text-[10px] text-gray-500 font-medium tracking-wider uppercase">Smart Lead Recovery</span>
-            </div>
-          </Link>
+          <LogoWithText href="/" className="mb-8" />
           <h1 className="text-4xl font-bold tracking-tight text-gray-900">
             Welcome back
           </h1>
@@ -89,7 +77,7 @@ export default function LoginPage() {
         </div>
 
         {/* Login Card */}
-        <div className="bg-white rounded-2xl p-8 shadow-xl" style={{ border: '1px solid rgb(229 231 235)' }}>
+        <div className="bg-card/90 rounded-2xl p-8 shadow-xl" style={{ border: '1px solid hsl(var(--border))' }}>
           {/* Google Login */}
           <Button
             type="button"

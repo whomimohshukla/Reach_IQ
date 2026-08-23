@@ -107,12 +107,7 @@ export default function SignupPage() {
       <div className="w-full max-w-md">
         {/* Logo */}
         <div className="text-center mb-8">
-          <Link href="/" className="inline-flex items-center gap-3 mb-2 group">
-            <div className="h-12 w-12 rounded-2xl bg-[#467235] flex items-center justify-center shadow-lg shadow-[#467235]/30 group-hover:shadow-xl group-hover:shadow-[#467235]/40 transition-all">
-              <span className="text-white font-bold text-lg">RI</span>
-            </div>
-            <span className="text-2xl font-bold text-gray-900">LeadFlow</span>
-          </Link>
+            <LogoWithText href="/" />
           <h1 className="text-3xl font-bold text-gray-900 mt-8">
             Create your account
           </h1>

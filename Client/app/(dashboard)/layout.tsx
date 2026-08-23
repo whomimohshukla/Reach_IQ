@@ -1,6 +1,6 @@
 'use client';
 
-import { Home, MessageSquare, Users, Calendar, BarChart3, Brain, MessageCircle, Settings, HelpCircle, ChevronDown, Bell, Search, Menu, X } from "lucide-react";
+import { Home, MessageSquare, Users, Calendar, BarChart3, Brain, MessageCircle, Settings, HelpCircle, ChevronDown, Bell, Search, Menu } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Button } from "@/components/ui/button";
@@ -39,11 +39,12 @@ export default function DashboardLayout({
 }) {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const currentPage = navigation.find((item) => pathname === item.href || pathname?.startsWith(item.href + '/'))?.name || 'Dashboard';
 
   return (
-    <div className="flex h-screen bg-[#F8FAF7] dark:bg-[#0E120C]">
+    <div className="workspace-grid flex h-screen">
       {/* Desktop Sidebar */}
-      <aside className="hidden md:flex md:w-72 md:flex-col bg-white dark:bg-[#141A12] border-r border-[#E2E8DF] dark:border-[#2C3828]">
+      <aside className="hidden md:flex md:w-64 md:flex-col border-r border-border bg-card/85 backdrop-blur-xl">
         {/* Logo */}
         <div className="flex h-20 items-center px-6 border-b border-[#E2E8DF] dark:border-[#2C3828]">
           <LogoWithText href="/dashboard" />
@@ -108,14 +109,12 @@ export default function DashboardLayout({
       {/* Main Content */}
       <div className="flex flex-1 flex-col overflow-hidden">
         {/* Mobile Header with Menu Button */}
-        <header className="flex h-16 md:h-20 items-center justify-between bg-white dark:bg-[#141A12] px-4 md:px-8 border-b border-[#E2E8DF] dark:border-[#2C3828]">
+        <header className="sticky top-0 z-30 flex h-16 items-center justify-between border-b border-border bg-card/85 px-4 backdrop-blur-xl md:h-20 md:px-8">
           {/* Mobile: Menu Button + Logo */}
           <div className="flex md:hidden items-center gap-3">
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
-              <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="h-10 w-10 md:hidden">
+              <SheetTrigger render={<Button variant="ghost" size="icon" className="h-10 w-10 md:hidden" />}>
                   <Menu className="h-6 w-6 text-[#172014] dark:text-white" />
-                </Button>
               </SheetTrigger>
               <SheetContent side="left" className="w-80 p-0 bg-white dark:bg-[#141A12]">
                 {/* Mobile Menu Content */}
@@ -187,21 +186,29 @@ export default function DashboardLayout({
             </Sheet>
 
             <LogoWithText href="/dashboard" className="md:hidden" />
+            <span className="hidden border-l border-border pl-3 font-mono text-[9px] uppercase tracking-[0.14em] text-primary sm:inline">{currentPage}</span>
           </div>
 
           {/* Desktop: Search Bar */}
-          <div className="hidden md:flex items-center gap-6 flex-1">
-            <div className="relative w-full max-w-lg">
+          <div className="hidden flex-1 items-center gap-6 md:flex">
+            <div className="min-w-[150px]">
+              <p className="font-mono text-[9px] uppercase tracking-[0.18em] text-primary">Workspace</p>
+              <p className="mt-1 text-sm font-semibold">{currentPage}</p>
+            </div>
+            <div className="relative w-full max-w-xl">
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-[#64705F] dark:text-[#AAB5A5]" />
               <Input
                 placeholder="Search leads, customers, conversations..."
-                className="pl-12 h-12 bg-[#F8FAF7] dark:bg-[#192118] border-[#E2E8DF] dark:border-[#2C3828] rounded-xl font-medium text-[#172014] dark:text-white placeholder:text-[#64705F] dark:placeholder:text-[#AAB5A5] focus:bg-white dark:focus:bg-[#202A1E] focus:ring-2 focus:ring-[#467235]"
+                className="h-12 rounded-[var(--radius)] border-border bg-background pl-12 font-medium text-foreground placeholder:text-muted-foreground focus:bg-card focus:ring-2 focus:ring-primary"
               />
             </div>
           </div>
 
           {/* Right Side: Notifications */}
-          <div className="flex items-center gap-2 md:gap-3">
+          <div className="flex items-center gap-2 md:gap-4">
+            <div className="hidden items-center gap-2 border border-border px-3 py-2 font-mono text-[9px] uppercase tracking-[0.12em] text-muted-foreground lg:flex">
+              <span className="h-1.5 w-1.5 rounded-full bg-[#25d366]" /> WhatsApp live
+            </div>
             <Button variant="ghost" size="icon" className="relative h-10 w-10 md:h-11 md:w-11 rounded-xl hover:bg-[#F8FAF7] dark:hover:bg-[#192118]">
               <Bell className="h-5 w-5 text-[#64705F] dark:text-[#AAB5A5]" />
               <span className="absolute top-2 right-2 h-2 w-2 rounded-full bg-[#C62828] border-2 border-white dark:border-[#141A12]" />
@@ -214,7 +221,7 @@ export default function DashboardLayout({
         </header>
 
         {/* Page Content */}
-        <main className="flex-1 overflow-y-auto bg-[#F8FAF7] dark:bg-[#0E120C]">
+        <main className="workspace-grid flex-1 overflow-y-auto">
           {children}
         </main>
       </div>

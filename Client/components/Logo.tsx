@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export function Logo({ className = "h-10 w-10" }: { className?: string }) {
   return (
-    <div className={`${className} rounded-xl bg-[#467235] flex items-center justify-center shadow-lg shadow-[#467235]/25`}>
+    <div className={`${className} rounded-[var(--radius)] bg-[var(--color-primary)] flex items-center justify-center shadow-lg shadow-[var(--color-primary)]/25`}>
       <svg viewBox="0 0 24 24" fill="none" className="w-[60%] h-[60%] text-white">
         <path 
           d="M12 2L2 7L12 12L22 7L12 2Z" 
@@ -28,15 +28,15 @@ export function Logo({ className = "h-10 w-10" }: { className?: string }) {
   );
 }
 
-export function LogoWithText({ href = "/" }: { href?: string }) {
+export function LogoWithText({ href = "/", className = "" }: { href?: string; className?: string }) {
   return (
-    <Link href={href} className="flex items-center gap-3 group">
-      <Logo />
+    <Link href={href} className={`flex items-center gap-3 group ${className}`}>
+      <Logo className="h-10 w-10" />
       <div className="flex flex-col">
-        <span className="text-xl font-bold text-[#172014] dark:text-white leading-none group-hover:text-[#467235] transition-colors">
+        <span className="text-xl font-bold text-foreground leading-none group-hover:text-primary transition-colors">
           LeadFlow
         </span>
-        <span className="text-[9px] text-[#64705F] dark:text-[#AAB5A5] font-medium tracking-wider uppercase leading-none mt-1">
+        <span className="text-[9px] text-muted-foreground font-medium tracking-wider uppercase leading-none mt-1">
           Smart Lead Recovery
         </span>
       </div>

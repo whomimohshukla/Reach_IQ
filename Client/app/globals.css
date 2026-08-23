@@ -3,72 +3,69 @@
 @layer base {
   /* CSS Variables for Theme Colors */
   :root {
-    /* LeadFlow Brand Colors */
-    --color-primary: #467235;
-    --color-primary-hover: #365A29;
-    --color-primary-light: #568B40;
-    --color-primary-dark: #29451F;
+    --color-primary: #557a48;
+    --color-primary-hover: #426238;
+    --color-primary-light: #c8ee9e;
+    --color-primary-dark: #20382a;
+    --background: 72 25% 97%;
+    --foreground: 150 22% 10%;
     
-    /* Shadcn required variables */
-    --background: 0 0% 100%;
-    --foreground: 150 25% 9%;
+    --card: 72 20% 99%;
+    --card-foreground: 150 22% 10%;
     
-    --card: 0 0% 100%;
-    --card-foreground: 150 25% 9%;
+    --popover: 72 20% 99%;
+    --popover-foreground: 150 22% 10%;
     
-    --popover: 0 0% 100%;
-    --popover-foreground: 150 25% 9%;
-    
-    --primary: 105 35% 33%;
+    --primary: 103 23% 38%;
     --primary-foreground: 0 0% 100%;
     
-    --secondary: 105 15% 95%;
-    --secondary-foreground: 150 25% 9%;
+    --secondary: 80 18% 92%;
+    --secondary-foreground: 150 22% 10%;
     
-    --muted: 105 10% 95%;
-    --muted-foreground: 105 5% 40%;
+    --muted: 80 15% 93%;
+    --muted-foreground: 145 9% 40%;
     
-    --accent: 105 15% 94%;
-    --accent-foreground: 150 25% 9%;
+    --accent: 80 18% 90%;
+    --accent-foreground: 150 22% 10%;
     
-    --destructive: 0 84% 60%;
+    --destructive: 0 65% 48%;
     --destructive-foreground: 0 0% 100%;
     
-    --border: 105 20% 87%;
-    --input: 105 20% 80%;
-    --ring: 105 35% 33%;
+    --border: 100 14% 83%;
+    --input: 100 14% 78%;
+    --ring: 103 23% 38%;
     
-    --radius: 0.75rem;
+    --radius: 0.35rem;
   }
 
   .dark {
-    --background: 150 30% 6%;
-    --foreground: 105 15% 95%;
+    --background: 160 30% 6%;
+    --foreground: 75 19% 91%;
     
-    --card: 150 25% 8%;
-    --card-foreground: 105 15% 95%;
+    --card: 160 24% 10%;
+    --card-foreground: 75 19% 91%;
     
-    --popover: 150 25% 8%;
-    --popover-foreground: 105 15% 95%;
+    --popover: 160 24% 10%;
+    --popover-foreground: 75 19% 91%;
     
-    --primary: 105 35% 40%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 87 96% 68%;
+    --primary-foreground: 160 30% 6%;
     
-    --secondary: 150 20% 12%;
-    --secondary-foreground: 105 15% 95%;
+    --secondary: 160 19% 15%;
+    --secondary-foreground: 75 19% 91%;
     
-    --muted: 150 20% 12%;
-    --muted-foreground: 105 15% 65%;
+    --muted: 160 19% 13%;
+    --muted-foreground: 142 11% 63%;
     
-    --accent: 150 20% 15%;
-    --accent-foreground: 105 15% 95%;
+    --accent: 160 19% 17%;
+    --accent-foreground: 75 19% 91%;
     
     --destructive: 0 62% 57%;
     --destructive-foreground: 0 0% 100%;
     
-    --border: 150 20% 22%;
-    --input: 150 20% 18%;
-    --ring: 105 35% 40%;
+    --border: 160 17% 24%;
+    --input: 160 17% 21%;
+    --ring: 87 96% 68%;
   }
 
   /* Global Reset */
@@ -88,27 +85,29 @@
   }
 
   body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
-    background-color: var(--bg-primary);
-    color: var(--text-primary);
-    line-height: 1.6;
+    font-family: 'DM Sans', ui-sans-serif, sans-serif;
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    line-height: 1.5;
     overflow-x: hidden;
   }
 
-  /* Remove default borders globally */
-  button,
-  input,
-  select,
-  textarea,
-  div,
-  section,
-  article,
-  aside,
-  nav,
-  header,
-  footer {
-    border-width: 0;
-    outline-width: 0;
+  a,
+  button {
+    transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease, opacity 180ms ease;
+  }
+
+  button:not(:disabled):hover,
+  a:hover {
+    transform: translateY(-1px);
+  }
+
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 3px;
   }
 
   /* Custom Scrollbar */
@@ -122,30 +121,53 @@
   }
 
   ::-webkit-scrollbar-thumb {
-    background: var(--color-primary);
-    border-radius: 4px;
+    background: hsl(var(--muted-foreground) / 0.45);
+    border-radius: 999px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: var(--color-primary-hover);
-  }
-
-  /* Smooth transitions */
-  * {
-    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 150ms;
+    background: hsl(var(--primary));
   }
 }
 
 @layer utilities {
   /* Custom Shadow Utilities */
   .shadow-soft {
-    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 2px hsl(160 25% 5% / 0.06), 0 8px 24px hsl(160 25% 5% / 0.04);
   }
 
   .shadow-medium {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.07);
+    box-shadow: 0 10px 30px hsl(160 25% 5% / 0.1);
+  }
+
+  .workspace-grid {
+    background-color: hsl(var(--background));
+    background-image: radial-gradient(hsl(var(--foreground) / 0.12) 0.8px, transparent 0.8px);
+    background-size: 22px 22px;
+  }
+
+  .workspace-grid > nav,
+  .workspace-grid > section,
+  .workspace-grid > footer {
+    animation: workspace-enter 600ms ease both;
+  }
+
+  .workspace-grid > section:nth-of-type(2) { animation-delay: 90ms; }
+  .workspace-grid > section:nth-of-type(3) { animation-delay: 160ms; }
+  .workspace-grid > section:nth-of-type(4) { animation-delay: 230ms; }
+
+  @keyframes workspace-enter {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      scroll-behavior: auto !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 
   /* Custom Animations */
@@ -234,4 +256,68 @@
   .animate-scale-in {
     animation: scaleIn 0.5s ease-out;
   }
+}
+
+@layer base {
+  [class~="rounded-xl"],
+  [class~="rounded-2xl"],
+  [class~="rounded-lg"] { border-radius: var(--radius); }
+
+  [class~="bg-white"] { background-color: hsl(var(--card)) !important; }
+  [class~="bg-white\/95"] { background-color: hsl(var(--card) / 0.95) !important; }
+  [class~="bg-gray-50"] { background-color: hsl(var(--background)) !important; }
+  [class~="bg-gray-100"] { background-color: hsl(var(--accent)) !important; }
+  [class~="text-gray-900"] { color: hsl(var(--foreground)) !important; }
+  [class~="text-gray-700"],
+  [class~="text-gray-600"],
+  [class~="text-gray-500"] { color: hsl(var(--muted-foreground)) !important; }
+  [class~="border-gray-200"],
+  [class~="border-gray-300"] { border-color: hsl(var(--border)) !important; }
+
+  [class~="bg-[#F8FAF7]"],
+  [class~="bg-[#F1F5EF]"],
+  [class~="bg-[#EEF4EA]"] { background-color: hsl(var(--background)) !important; }
+  [class~="bg-[#192118]"],
+  [class~="bg-[#202A1E]"],
+  [class~="bg-[#141A12]"] { background-color: hsl(var(--card)) !important; }
+  [class~="text-[#172014]"] { color: hsl(var(--foreground)) !important; }
+  [class~="text-[#64705F]"],
+  [class~="text-[#AAB5A5]"] { color: hsl(var(--muted-foreground)) !important; }
+  [class~="border-[#E2E8DF]"],
+  [class~="border-[#2C3828]"] { border-color: hsl(var(--border)) !important; }
+  [class~="bg-[#467235]"] { background-color: hsl(var(--primary)) !important; }
+  [class~="bg-[#467235]\/10"] { background-color: hsl(var(--primary) / 0.1) !important; }
+  [class*="from-[#467235]"] { background-image: none !important; background-color: hsl(var(--primary)) !important; }
+  [class*="to-[#365A29]"] { background-image: none !important; }
+  [class~="text-[#467235]"] { color: hsl(var(--primary)) !important; }
+
+  .dark [class~="bg-white"] { background-color: hsl(var(--card)) !important; }
+  .dark [class~="bg-gray-50"] { background-color: hsl(var(--muted)); }
+  .dark [class~="bg-gray-100"] { background-color: hsl(var(--accent)); }
+  .dark [class~="text-gray-900"] { color: hsl(var(--foreground)); }
+  .dark [class~="text-gray-700"],
+  .dark [class~="text-gray-600"] { color: hsl(var(--muted-foreground)); }
+  .dark [class~="text-gray-500"] { color: hsl(var(--muted-foreground) / 0.8); }
+  .dark [class~="border-gray-200"],
+  .dark [class~="border-gray-300"] { border-color: hsl(var(--border)); }
+  .dark [class~="bg-[#F8FAF7]"],
+  .dark [class~="bg-[#F1F5EF]"],
+  .dark [class~="bg-[#EEF4EA]"] { background-color: hsl(var(--background)); }
+  .dark [class~="bg-[#192118]"],
+  .dark [class~="bg-[#202A1E]"],
+  .dark [class~="bg-[#141A12]"] { background-color: hsl(var(--card)); }
+  .dark [class~="text-[#172014]"] { color: hsl(var(--foreground)); }
+  .dark [class~="text-[#64705F]"],
+  .dark [class~="text-[#AAB5A5]"] { color: hsl(var(--muted-foreground)); }
+  .dark [class~="border-[#E2E8DF]"],
+  .dark [class~="border-[#2C3828]"] { border-color: hsl(var(--border)); }
+  .dark [class~="bg-[#467235]"] { background-color: hsl(var(--primary)); }
+  .dark [class~="bg-[#467235]\/10"] { background-color: hsl(var(--primary) / 0.1); }
+  .dark [class*="from-[#467235]"] { background-image: none !important; background-color: hsl(var(--primary)) !important; }
+  .dark [class*="to-[#365A29]"] { background-image: none !important; }
+  .dark [class~="bg-[#467235]"] .text-white,
+  .dark [class*="from-[#467235]"] .text-white { color: hsl(var(--primary-foreground)) !important; }
+  .dark [class~="text-[#467235]"] { color: hsl(var(--primary)); }
+  .dark [class~="bg-gray-50"] { background-color: hsl(var(--background)); }
+  .dark [class~="bg-gray-100"] { background-color: hsl(var(--accent)); }
 }
