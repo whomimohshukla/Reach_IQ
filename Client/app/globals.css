@@ -3,27 +3,27 @@
 @layer base {
   /* CSS Variables for Theme Colors */
   :root {
-    --color-primary: #557a48;
-    --color-primary-hover: #426238;
-    --color-primary-light: #c8ee9e;
-    --color-primary-dark: #20382a;
+    --color-primary: #0c3b2f;
+    --color-primary-hover: #0a3026;
+    --color-primary-light: #d7e8df;
+    --color-primary-dark: #06251d;
     --background: 72 25% 97%;
-    --foreground: 150 22% 10%;
+    --foreground: 150 30% 8%;
     
     --card: 72 20% 99%;
-    --card-foreground: 150 22% 10%;
+    --card-foreground: 150 30% 8%;
     
     --popover: 72 20% 99%;
-    --popover-foreground: 150 22% 10%;
+    --popover-foreground: 150 30% 8%;
     
-    --primary: 103 23% 38%;
+    --primary: 166 66% 14%;
     --primary-foreground: 0 0% 100%;
     
     --secondary: 80 18% 92%;
     --secondary-foreground: 150 22% 10%;
     
     --muted: 80 15% 93%;
-    --muted-foreground: 145 9% 40%;
+    --muted-foreground: 145 14% 31%;
     
     --accent: 80 18% 90%;
     --accent-foreground: 150 22% 10%;
@@ -33,39 +33,43 @@
     
     --border: 100 14% 83%;
     --input: 100 14% 78%;
-    --ring: 103 23% 38%;
+    --ring: 166 66% 14%;
     
     --radius: 0.35rem;
   }
 
   .dark {
     --background: 160 30% 6%;
-    --foreground: 75 19% 91%;
+    --foreground: 78 27% 95%;
     
     --card: 160 24% 10%;
-    --card-foreground: 75 19% 91%;
+    --card-foreground: 78 27% 95%;
     
     --popover: 160 24% 10%;
-    --popover-foreground: 75 19% 91%;
+    --popover-foreground: 78 27% 95%;
     
-    --primary: 87 96% 68%;
-    --primary-foreground: 160 30% 6%;
+    --primary: 166 66% 14%;
+    --primary-foreground: 75 19% 91%;
     
     --secondary: 160 19% 15%;
-    --secondary-foreground: 75 19% 91%;
+    --secondary-foreground: 78 27% 95%;
     
     --muted: 160 19% 13%;
-    --muted-foreground: 142 11% 63%;
+    --muted-foreground: 142 17% 75%;
     
     --accent: 160 19% 17%;
-    --accent-foreground: 75 19% 91%;
+    --accent-foreground: 78 27% 95%;
     
     --destructive: 0 62% 57%;
     --destructive-foreground: 0 0% 100%;
     
     --border: 160 17% 24%;
     --input: 160 17% 21%;
-    --ring: 87 96% 68%;
+    --ring: 166 66% 14%;
+    --color-primary: #0c3b2f;
+    --color-primary-hover: #0a3026;
+    --color-primary-light: #d7e8df;
+    --color-primary-dark: #06251d;
   }
 
   /* Global Reset */
@@ -108,6 +112,11 @@
   textarea:focus-visible {
     outline: 2px solid hsl(var(--ring));
     outline-offset: 3px;
+  }
+
+  [class*="border-gray-"],
+  [class*="border-[#"] {
+    border-color: hsl(var(--border)) !important;
   }
 
   /* Custom Scrollbar */
@@ -290,6 +299,14 @@
   [class*="from-[#467235]"] { background-image: none !important; background-color: hsl(var(--primary)) !important; }
   [class*="to-[#365A29]"] { background-image: none !important; }
   [class~="text-[#467235]"] { color: hsl(var(--primary)) !important; }
+  [class~="bg-green-50"],
+  [class~="bg-green-100"] { background-color: hsl(var(--primary) / 0.12) !important; }
+  [class~="bg-green-500"],
+  [class~="bg-green-600"],
+  [class~="bg-green-700"] { background-color: hsl(var(--primary)) !important; }
+  [class~="text-green-500"],
+  [class~="text-green-600"],
+  [class~="text-green-700"] { color: hsl(var(--primary)) !important; }
 
   .dark [class~="bg-white"] { background-color: hsl(var(--card)) !important; }
   .dark [class~="bg-gray-50"] { background-color: hsl(var(--muted)); }
@@ -318,6 +335,9 @@
   .dark [class~="bg-[#467235]"] .text-white,
   .dark [class*="from-[#467235]"] .text-white { color: hsl(var(--primary-foreground)) !important; }
   .dark [class~="text-[#467235]"] { color: hsl(var(--primary)); }
+  .dark [class~="bg-[#467235]"][class~="text-white"],
+  .dark [class~="bg-primary"][class~="text-white"] { color: hsl(var(--primary-foreground)) !important; }
+  .dark [class~="bg-[#467235]\/10"] [class~="text-white"] { color: hsl(var(--foreground)) !important; }
   .dark [class~="bg-gray-50"] { background-color: hsl(var(--background)); }
   .dark [class~="bg-gray-100"] { background-color: hsl(var(--accent)); }
 }

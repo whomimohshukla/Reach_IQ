@@ -9,6 +9,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { Loader2, AlertCircle, Mail, Lock, Eye, EyeOff } from "lucide-react";
+import { LogoWithText } from '@/components/Logo';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -198,7 +199,7 @@ export default function LoginPage() {
 
         {/* Sign Up Link */}
         <p className="text-center text-gray-600 mt-8">
-          Don't have an account?{' '}
+          Don&apos;t have an account?{' '}
           <Link href="/signup" className="text-[#467235] hover:text-[#365A29] font-bold transition-colors">
             Sign up for free
           </Link>

@@ -3,7 +3,7 @@ import Link from 'next/link';
 export function Logo({ className = "h-10 w-10" }: { className?: string }) {
   return (
     <div className={`${className} rounded-[var(--radius)] bg-[var(--color-primary)] flex items-center justify-center shadow-lg shadow-[var(--color-primary)]/25`}>
-      <svg viewBox="0 0 24 24" fill="none" className="w-[60%] h-[60%] text-white">
+      <svg viewBox="0 0 24 24" fill="none" className="h-[60%] w-[60%] text-white">
         <path 
           d="M12 2L2 7L12 12L22 7L12 2Z" 
           fill="currentColor" 

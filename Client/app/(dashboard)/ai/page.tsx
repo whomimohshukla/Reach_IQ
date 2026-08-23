@@ -10,7 +10,6 @@ import {
   Clock,
   MessageSquare,
   IndianRupee,
-  AlertCircle,
   Zap,
   ArrowRight,
   Flame
@@ -27,64 +26,64 @@ export default function AIPage() {
   const totalPotentialRevenue = highValueLeads.reduce((sum, lead) => sum + lead.potentialValue, 0);
 
   return (
-    <div className="p-8 space-y-8">
+    <div className="min-h-full space-y-8 p-4 md:p-8">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <div className="flex items-center gap-3 mb-3">
-            <div className="h-12 w-12 rounded-2xl bg-[#467235] flex items-center justify-center shadow-lg shadow-[#467235]/30">
-              <Sparkles className="h-6 w-6 text-white" />
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-[var(--radius)] bg-primary shadow-lg shadow-primary/30">
+              <Sparkles className="h-6 w-6 text-primary-foreground" />
             </div>
-            <h1 className="text-4xl font-bold text-gray-900">AI Insights</h1>
+            <h1 className="text-3xl font-bold tracking-tight text-foreground md:text-4xl">AI Insights</h1>
           </div>
-          <p className="text-gray-600 text-base">
+          <p className="text-base text-muted-foreground">
             Intelligent recommendations powered by machine learning
           </p>
         </div>
-        <Button className="bg-[#467235] hover:bg-[#365A29] text-white h-12 px-6 shadow-lg shadow-[#467235]/25 font-semibold">
+        <Button className="h-12 bg-primary px-6 text-primary-foreground shadow-lg shadow-primary/25 hover:bg-primary/90">
           <Zap className="h-4 w-4 mr-2" />
           Refresh Insights
         </Button>
       </div>
 
       {/* Main Revenue Opportunity Banner */}
-      <Card className="p-10 bg-gradient-to-br from-[#467235]/10 via-[#467235]/5 to-transparent" style={{ border: '2px solid rgba(68, 161, 148, 0.3)' }}>
-        <div className="flex items-start justify-between gap-8">
-          <div className="flex items-start gap-6 flex-1">
-            <div className="h-20 w-20 rounded-2xl bg-[#467235] flex items-center justify-center shadow-xl shadow-[#467235]/40">
-              <Target className="h-10 w-10 text-white" />
+      <Card className="border-primary/30 bg-primary/10 p-6 md:p-10">
+        <div className="flex flex-col items-start justify-between gap-8 lg:flex-row">
+          <div className="flex min-w-0 flex-1 items-start gap-5 md:gap-6">
+            <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-[var(--radius)] bg-primary shadow-xl shadow-primary/40 md:h-20 md:w-20">
+              <Target className="h-8 w-8 text-primary-foreground md:h-10 md:w-10" />
             </div>
             <div className="flex-1">
               <div className="flex items-center gap-3 mb-3">
-                <h2 className="text-3xl font-bold text-gray-900">High Priority Opportunity</h2>
+                <h2 className="text-2xl font-bold text-foreground md:text-3xl">High Priority Opportunity</h2>
                 <Badge className="bg-red-500 text-white font-bold px-4 py-2 text-base">
                   <Flame className="h-4 w-4 mr-1" />
                   Urgent
                 </Badge>
               </div>
-              <p className="text-gray-700 text-lg leading-relaxed mb-4">
-                We identified <span className="font-bold text-gray-900">{highValueLeads.length} high-intent leads</span> worth{' '}
-                <span className="font-bold text-[#467235]">{formatCurrency(totalPotentialRevenue)}</span> that require immediate attention.
-                These customers showed clear buying signals but haven't received follow-up in over 24 hours.
+              <p className="mb-4 text-base leading-relaxed text-foreground/80 md:text-lg">
+                We identified <span className="font-bold text-foreground">{highValueLeads.length} high-intent leads</span> worth{' '}
+                <span className="font-bold text-primary">{formatCurrency(totalPotentialRevenue)}</span> that require immediate attention.
+                These customers showed clear buying signals but haven&apos;t received follow-up in over 24 hours.
               </p>
               <div className="flex items-center gap-6 text-sm">
                 <div className="flex items-center gap-2">
                   <div className="h-3 w-3 rounded-full bg-green-500 animate-pulse" />
-                  <span className="font-bold text-gray-700">92% Confidence</span>
+                  <span className="font-bold text-foreground/80">92% Confidence</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Clock className="h-4 w-4 text-orange-500" />
-                  <span className="font-bold text-gray-700">Act within 6 hours</span>
+                  <span className="font-bold text-foreground/80">Act within 6 hours</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <TrendingUp className="h-4 w-4 text-green-500" />
-                  <span className="font-bold text-gray-700">67% conversion rate</span>
+                  <span className="font-bold text-foreground/80">67% conversion rate</span>
                 </div>
               </div>
             </div>
           </div>
           <Link href="/leads?status=HOT">
-            <Button size="lg" className="bg-[#467235] hover:bg-[#365A29] text-white shadow-xl shadow-[#467235]/30 h-14 px-8 text-base font-bold">
+            <Button size="lg" className="h-14 bg-primary px-8 text-base font-bold text-primary-foreground shadow-xl shadow-primary/30 hover:bg-primary/90">
               Review Leads
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
@@ -95,7 +94,7 @@ export default function AIPage() {
       {/* AI Insights Cards */}
       <div className="grid gap-6 lg:grid-cols-3">
         {mockAIInsights.map((insight) => (
-          <Card key={insight.id} className="p-7 bg-white hover:shadow-xl transition-all" style={{ border: '1px solid rgb(243 244 246)' }}>
+          <Card key={insight.id} className="border-border bg-card p-7 transition-all hover:-translate-y-1 hover:shadow-xl">
             <div className="flex items-start justify-between mb-5">
               <div className={`h-12 w-12 rounded-2xl flex items-center justify-center ${
                 insight.priority === 'HIGH' ? 'bg-red-50' :
@@ -123,17 +122,17 @@ export default function AIPage() {
               </Badge>
             </div>
 
-            <h3 className="text-xl font-bold text-gray-900 mb-3">
+            <h3 className="mb-3 text-xl font-bold text-foreground">
               {insight.title}
             </h3>
-            <p className="text-gray-600 text-sm leading-relaxed mb-5 font-medium">
+            <p className="mb-5 text-sm font-medium leading-relaxed text-muted-foreground">
               {insight.description}
             </p>
 
             {insight.potentialValue && (
               <div className="p-4 bg-[#467235]/10 rounded-xl mb-5" style={{ border: '1px solid rgba(68, 161, 148, 0.2)' }}>
-                <div className="text-sm text-gray-600 mb-1 font-semibold">Potential Revenue</div>
-                <div className="text-2xl font-bold text-[#467235]">
+                <div className="mb-1 text-sm font-semibold text-muted-foreground">Potential Revenue</div>
+                <div className="text-2xl font-bold text-primary">
                   {formatCurrency(insight.potentialValue)}
                 </div>
               </div>
@@ -144,7 +143,7 @@ export default function AIPage() {
                 <div className="h-2 w-2 rounded-full bg-green-500" />
                 <span className="font-bold text-gray-600">{insight.confidence}% confidence</span>
               </div>
-              <Button size="sm" className="bg-[#467235] hover:bg-[#365A29] text-white font-semibold h-9 px-4">
+              <Button size="sm" className="h-9 bg-primary px-4 font-semibold text-primary-foreground hover:bg-primary/90">
                 Take Action
               </Button>
             </div>
@@ -153,11 +152,11 @@ export default function AIPage() {
       </div>
 
       {/* High-Value Leads Section */}
-      <Card className="p-8 bg-white" style={{ border: '1px solid rgb(243 244 246)' }}>
+      <Card className="border-border bg-card p-6 md:p-8">
         <div className="flex items-center justify-between mb-6">
           <div>
-            <h2 className="text-2xl font-bold text-gray-900">High-Value Leads Requiring Action</h2>
-            <p className="text-gray-600 text-sm font-medium mt-1">
+            <h2 className="text-2xl font-bold text-foreground">High-Value Leads Requiring Action</h2>
+            <p className="mt-1 text-sm font-medium text-muted-foreground">
               Leads with highest conversion probability
             </p>
           </div>
@@ -172,7 +171,7 @@ export default function AIPage() {
         <div className="space-y-4">
           {highValueLeads.map((lead) => (
             <Link key={lead.id} href={`/leads/${lead.id}`}>
-              <div className="p-6 bg-gray-50 rounded-2xl hover:bg-gray-100 transition-all group">
+              <div className="group rounded-[var(--radius)] bg-muted p-5 transition-all hover:bg-accent md:p-6">
                 <div className="flex items-start justify-between gap-6">
                   <div className="flex items-start gap-5 flex-1">
                     <div className="h-16 w-16 rounded-2xl bg-[#467235]/10 flex items-center justify-center text-base font-bold text-[#467235]" style={{ border: '2px solid rgba(68, 161, 148, 0.2)' }}>
@@ -180,7 +179,7 @@ export default function AIPage() {
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center gap-3 mb-2">
-                        <h3 className="font-bold text-gray-900 text-lg group-hover:text-[#467235] transition-colors">
+                        <h3 className="text-lg font-bold text-foreground transition-colors group-hover:text-primary">
                           {lead.customer.name}
                         </h3>
                         <Badge className="bg-red-500 text-white font-semibold px-3 py-1">
@@ -190,7 +189,7 @@ export default function AIPage() {
                           <span className="text-sm font-bold text-green-700">Score: {lead.score}</span>
                         </div>
                       </div>
-                      <div className="flex items-center gap-5 text-sm text-gray-600 font-medium">
+                      <div className="flex flex-wrap items-center gap-3 text-sm font-medium text-muted-foreground md:gap-5">
                         <span>{lead.service}</span>
                         <span>•</span>
                         <span>{lead.customer.location}</span>
@@ -202,8 +201,8 @@ export default function AIPage() {
 
                   <div className="flex items-center gap-3">
                     <div className="text-right">
-                      <div className="text-sm text-gray-500 mb-1 font-semibold">AI Recommendation</div>
-                      <div className="text-sm font-bold text-[#467235]">Follow up within 2 hours</div>
+                      <div className="mb-1 text-sm font-semibold text-muted-foreground">AI Recommendation</div>
+                      <div className="text-sm font-bold text-primary">Follow up within 2 hours</div>
                     </div>
                     <ArrowRight className="h-5 w-5 text-[#467235] group-hover:translate-x-1 transition-transform" />
                   </div>
@@ -213,7 +212,7 @@ export default function AIPage() {
                   <div className="h-6 w-6 rounded-lg bg-[#467235] flex items-center justify-center flex-shrink-0">
                     <Sparkles className="h-4 w-4 text-white" />
                   </div>
-                  <p className="text-sm text-gray-700 font-medium">
+                  <p className="text-sm font-medium text-foreground/80">
                     Customer showed high buying intent. Mentioned specific requirements and asked about pricing.
                     Best time to contact: Morning (10-11 AM). Conversion probability: 87%.
                   </p>
@@ -249,11 +248,11 @@ export default function AIPage() {
             bgColor: 'bg-blue-50'
           },
         ].map((stat, i) => (
-          <Card key={i} className="p-7 bg-white" style={{ border: '1px solid rgb(243 244 246)' }}>
+          <Card key={i} className="border-border bg-card p-7">
             <div className="flex items-center justify-between">
               <div>
-                <div className="text-sm text-gray-500 mb-2 font-semibold">{stat.label}</div>
-                <div className="text-4xl font-bold text-gray-900">{stat.value}</div>
+                <div className="mb-2 text-sm font-semibold text-muted-foreground">{stat.label}</div>
+                <div className="text-4xl font-bold text-foreground">{stat.value}</div>
               </div>
               <div className={`h-14 w-14 rounded-2xl ${stat.bgColor} flex items-center justify-center`}>
                 <stat.icon className={`h-7 w-7 ${stat.color}`} />
